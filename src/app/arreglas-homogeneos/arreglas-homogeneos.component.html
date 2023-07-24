@@ -1,0 +1,20 @@
+<h3>Arreglos homogeneos</h3>
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Fecha Vencimiento</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let fruta of frutas">
+            <td>{{fruta.id}}</td>
+            <td>{{fruta.nombre |uppercase}}</td>
+            <td>{{fruta.precio |currency}}</td>
+            <td>{{fruta.fechavencimiento|date:'dd/MM/yyyy' }}</td>
+        </tr>
+    </tbody>
+</table>
