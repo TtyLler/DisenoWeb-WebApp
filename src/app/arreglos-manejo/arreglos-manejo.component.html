@@ -1,0 +1,23 @@
+<h3>Manejo de Arreglos</h3>
+<form>
+    <div>
+        <input type="number" placeholder="Digite un Id" name="id" [(ngModel)]="persona.id" />
+    </div>
+    <div>
+        <input type="text" placeholder="Digite un nombre" name="nombre" [(ngModel)]="persona.nombre" />
+    </div>
+    <div>
+        <input type="text" placeholder="Digite un apellido" name="apellido" [(ngModel)]="persona.apellido" />
+    </div>
+    <div>
+        <input type="text" placeholder="Digite un correo electronuco" name="correoElecrtonico"
+            [(ngModel)]="persona.correoElecrtonico" />
+    </div>
+    <div>
+        <button class="btn btn-secondary" (click)="agregarPersona()">Aceptar</button>
+        <button class="btn btn-secondary" (click)="removerPersona()">Remover</button>
+    </div>
+</form>
+<pre>
+    {{personas|json}}
+</pre>
