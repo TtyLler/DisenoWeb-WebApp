@@ -11,7 +11,7 @@ export class FacturasComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // Simulación de datos de facturas
+  
     this.facturas = [
       {
         mesa: 1,
