@@ -10,6 +10,10 @@ import { AddEditEmpleadoComponent } from './components/add-edit-empleado/add-edi
 import { ListEmpleadoComponent } from './components/list-empleado/list-empleado.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms'
+import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
+
+import { FacturasComponent } from './facturas/facturas.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { ReactiveFormsModule } from '@angular/forms'
     LoginComponent,
     HomeComponent,
     AddEditEmpleadoComponent,
-    ListEmpleadoComponent
+    ListEmpleadoComponent,
+    MesasDispoComponent,
+    FacturasComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

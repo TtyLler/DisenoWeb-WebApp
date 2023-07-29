@@ -1,0 +1,20 @@
+.background-image {
+    background-image: url('https://www.buengusto.co/wp-content/uploads/2019/05/servicio-restaurante-1920x1280.jpg'); /* Reemplaza 'tu-imagen-de-fondo.jpg' con el nombre de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh; /* Ajusta la altura según tus necesidades */
+    position: relative;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .jumbotron {
+    background-color: rgba(255, 255, 255, 0.8); /* Agregamos un fondo semi-transparente al jumbotron para mejorar la legibilidad del texto */
+    padding: 30px;
+    color: #000; /* Cambia el color del texto para que sea legible */
+  }
+  

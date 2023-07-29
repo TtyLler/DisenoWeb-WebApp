@@ -16,7 +16,7 @@ export class EmpleadoService {
   private appUrl: string;
   private apiUrl: string;
   constructor(private http: HttpClient) { 
-    this.appUrl = environment.endpoint
+    this.appUrl = 'http://localhost:8181/'
     this.apiUrl = 'empleados/'
   }
 

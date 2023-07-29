@@ -1,0 +1,40 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-md-3 {
+    flex: 0 0 25%;
+    padding: 5px; /* Reducimos el padding */
+  }
+  
+  .mesa {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    padding: 5px; /* Reducimos el padding */
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .mesa:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .numero-mesa {
+    font-size: 16px; /* Reducimos el tamaño de la fuente */
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .icono-silla {
+    width: 80px; /* Reducimos el tamaño del ícono de silla */
+    height: 80px; /* Reducimos el tamaño del ícono de silla */
+  }
+  
+  .selected {
+    background-color: #007bff;
+    color: #fff;
+  }
+  

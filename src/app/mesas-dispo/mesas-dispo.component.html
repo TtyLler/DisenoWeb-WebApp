@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <h2 class="mb-4">Mesas Disponibles</h2>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let mesa of mesas">
+        <div class="mesa" [ngClass]="{ 'selected': selectedTable === mesa.numero }" (click)="verFactura(mesa.numero)">
+          <p class="numero-mesa">{{ mesa.numero }}</p>
+          <img src="https://cdn-icons-png.flaticon.com/512/1889/1889949.png" alt="Silla" class="icono-silla">
+        </div>
+      </div>
+    </div>
+  </div>
+  
