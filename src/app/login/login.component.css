@@ -3,11 +3,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    min-height: 100vh;
+    min-height: 90vh;
     margin: 0;
     padding: 0;
     display: grid;
-    place-items: center;
+    place-items: center; 
 }
 .container-fluid {
     padding: 20px;
