@@ -9,11 +9,12 @@ import { HomeComponent } from './home/home.component';
 import { AddEditEmpleadoComponent } from './components/add-edit-empleado/add-edit-empleado.component';
 import { ListEmpleadoComponent } from './components/list-empleado/list-empleado.component';
 import { HttpClientModule } from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule, FormsModule  } from '@angular/forms'
 import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
 
 import { FacturasComponent } from './facturas/facturas.component';
 import { MenuComponent } from './menu/menu.component';
+import { FilterPipe } from './pipes/filterEmpleado.pipe';
 
 @NgModule({
   declarations: [
@@ -26,12 +27,14 @@ import { MenuComponent } from './menu/menu.component';
     MesasDispoComponent,
     FacturasComponent,
     MenuComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

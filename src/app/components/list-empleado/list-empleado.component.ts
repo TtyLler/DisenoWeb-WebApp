@@ -9,6 +9,7 @@ import { EmpleadoService } from 'src/app/services/empleado.service';
 })
 export class ListEmpleadoComponent {
   listEmpleados: Empleado[] = [];
+  filterPost = ''
 
   constructor(private _empleadoService: EmpleadoService) {}
 
