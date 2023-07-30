@@ -1,0 +1,39 @@
+<div class="container mt-3">
+    <section>
+      <h4>Listado de Mesas</h4>
+    </section>
+    <section class="title mb-3">
+      <input type="text" class="form-control" placeholder="Buscar...." id="searchInput" name="filterPost" [(ngModel)]="filterPost">
+      <button type="button" class="btn btn-secondary" routerLink="/add-mesa">Agregar Mesa</button>
+    </section>
+    <table class="table table-dark table-hover text-center">
+      <thead>
+        <tr>
+          <th scope="col">CodigoMesa</th>
+          <th scope="col">NombreMesa</th>
+          <th scope="col">NumeroMesa</th>
+          <th scope="col">CodigoRestaurante</th>
+          <th scope="col">CantidadSillasMesa</th>
+          <th rowspan="1" colspan="2">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listMesa | filterMesa: filterPost">
+          <td>{{ item.CodigoMesa }}</td>
+          <td>{{ item.NombreMesa }}</td>
+          <td>{{ item.NumeroMesa }}</td>
+          <td>{{ item.CodigoRestaurante }}</td>
+          <td>{{ item.CantidadSillasMesa }}</td>
+          <td>
+            <button type="button" class="btn btn-primary btn-sm" routerLink="/edit-mesa/{{item.id}}">
+              Editar
+            </button>
+            <button type="button" class="btn btn-danger btn-sm ms-2" (click)="deleteMesa(item.id)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

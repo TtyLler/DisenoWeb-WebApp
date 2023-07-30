@@ -15,6 +15,9 @@ import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
 import { FacturasComponent } from './facturas/facturas.component';
 import { MenuComponent } from './menu/menu.component';
 import { FilterPipe } from './pipes/filterEmpleado.pipe';
+import { AddEditMesaComponent } from './components/add-edit-mesa/add-edit-mesa.component';
+import { ListMesaComponent } from './components/list-mesa/list-mesa.component';
+import { FilterMesaPipe } from './pipes/filter-mesa.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { FilterPipe } from './pipes/filterEmpleado.pipe';
     FacturasComponent,
     MenuComponent,
     FilterPipe,
+    AddEditMesaComponent,
+    ListMesaComponent,
+    FilterMesaPipe,
   ],
   imports: [
     BrowserModule,

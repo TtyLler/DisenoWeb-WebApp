@@ -7,6 +7,8 @@ import { AddEditEmpleadoComponent } from './components/add-edit-empleado/add-edi
 import { FacturasComponent } from './facturas/facturas.component';
 import { MenuComponent } from './menu/menu.component';
 import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
+import { AddEditMesaComponent } from './components/add-edit-mesa/add-edit-mesa.component';
+import { ListMesaComponent } from './components/list-mesa/list-mesa.component';
 
 const routes: Routes = [
   {
@@ -29,9 +31,21 @@ const routes: Routes = [
     path: 'edit-empleado/:id',
     component: AddEditEmpleadoComponent,
   },
+  {
+    path: 'listmesa',
+    component: ListMesaComponent,
+  },
+  {
+    path: 'add-mesa',
+    component: AddEditMesaComponent,
+  },
+  {
+    path: 'edit-mesa/:id',
+    component: AddEditMesaComponent,
+  },
   { path: 'mesas-dispo', component: MesasDispoComponent },
-  { path: 'facturas', component: FacturasComponent},
-  { path: 'menu', component: MenuComponent},
+  { path: 'facturas', component: FacturasComponent },
+  { path: 'menu', component: MenuComponent },
   {
     path: '**',
     redirectTo: '',
