@@ -18,6 +18,9 @@ import { FilterPipe } from './pipes/filterEmpleado.pipe';
 import { AddEditMesaComponent } from './components/add-edit-mesa/add-edit-mesa.component';
 import { ListMesaComponent } from './components/list-mesa/list-mesa.component';
 import { FilterMesaPipe } from './pipes/filter-mesa.pipe';
+import { ListEspecialidadComponent } from './components/list-especialidad/list-especialidad.component';
+import { AddEditEspecialidadComponent } from './components/add-edit-especialidad/add-edit-especialidad.component';
+import { FilterEspecialidadPipe } from './pipes/filter-especialidad.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { FilterMesaPipe } from './pipes/filter-mesa.pipe';
     AddEditMesaComponent,
     ListMesaComponent,
     FilterMesaPipe,
+    ListEspecialidadComponent,
+    AddEditEspecialidadComponent,
+    FilterEspecialidadPipe,
   ],
   imports: [
     BrowserModule,

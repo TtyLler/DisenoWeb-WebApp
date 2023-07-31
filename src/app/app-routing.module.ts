@@ -9,6 +9,8 @@ import { MenuComponent } from './menu/menu.component';
 import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
 import { AddEditMesaComponent } from './components/add-edit-mesa/add-edit-mesa.component';
 import { ListMesaComponent } from './components/list-mesa/list-mesa.component';
+import { ListEspecialidadComponent } from './components/list-especialidad/list-especialidad.component';
+import { AddEditEspecialidadComponent } from './components/add-edit-especialidad/add-edit-especialidad.component';
 
 const routes: Routes = [
   {
@@ -42,6 +44,18 @@ const routes: Routes = [
   {
     path: 'edit-mesa/:id',
     component: AddEditMesaComponent,
+  },
+  {
+    path: 'listespecialidad',
+    component: ListEspecialidadComponent,
+  },
+  {
+    path: 'add-especialidad',
+    component: AddEditEspecialidadComponent,
+  },
+  {
+    path: 'edit-especialidad/:id',
+    component: AddEditEspecialidadComponent,
   },
   { path: 'mesas-dispo', component: MesasDispoComponent },
   { path: 'facturas', component: FacturasComponent },
