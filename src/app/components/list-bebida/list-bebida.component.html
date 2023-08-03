@@ -1,0 +1,46 @@
+<div class="container mt-3">
+    <section>
+      <h4>Listado de Bebidas</h4>
+    </section>
+    <section class="title mb-3">
+      <input type="text" class="form-control" placeholder="Buscar...." id="searchInput" name="filterPost" [(ngModel)]="filterPost">
+      <button type="button" class="btn btn-secondary" routerLink="/add-bebida">Agregar Bebida</button>
+    </section>
+    <table class="table table-dark table-hover text-center">
+      <thead>
+        <tr>
+          <th scope="col">CodigoBebida</th>
+          <th scope="col">TipoBebida</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Precio</th>
+          <th scope="col">CodigoRestaurante</th>
+          <th scope="col">Pais</th>
+          <th scope="col">CodigoMedida</th>
+          <th scope="col">Año</th>
+          <th rowspan="1" colspan="2">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listBebida | filterBebida: filterPost">
+          <td>{{ item.CodigoBebida }}</td>
+          <td>{{ item.TipoBebida }}</td>
+          <td>{{ item.Marca }}</td>
+          <td>{{ item.Precio }}</td>
+          <td>{{ item.CodigoRestaurante }}</td>
+          <td>{{ item.Pais }}</td>
+          <td>{{ item.CodigoMedida }}</td>
+          <td>{{ item.Ano }}</td>
+          <td>
+            <button type="button" class="btn btn-primary btn-sm" routerLink="/edit-bebida/{{item.id}}">
+              Editar
+            </button>
+            <button type="button" class="btn btn-danger btn-sm ms-2" (click)="deleteBebida(item.id)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+

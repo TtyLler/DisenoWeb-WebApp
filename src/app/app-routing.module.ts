@@ -11,6 +11,8 @@ import { AddEditMesaComponent } from './components/add-edit-mesa/add-edit-mesa.c
 import { ListMesaComponent } from './components/list-mesa/list-mesa.component';
 import { ListEspecialidadComponent } from './components/list-especialidad/list-especialidad.component';
 import { AddEditEspecialidadComponent } from './components/add-edit-especialidad/add-edit-especialidad.component';
+import { AddEditBebidaComponent } from './components/add-edit-bebida/add-edit-bebida.component';
+import { ListBebidaComponent } from './components/list-bebida/list-bebida.component';
 
 const routes: Routes = [
   {
@@ -56,6 +58,18 @@ const routes: Routes = [
   {
     path: 'edit-especialidad/:id',
     component: AddEditEspecialidadComponent,
+  },
+  {
+    path: 'listbebida',
+    component: ListBebidaComponent,
+  },
+  {
+    path: 'add-bebida',
+    component: AddEditBebidaComponent,
+  },
+  {
+    path: 'edit-bebida/:id',
+    component: AddEditBebidaComponent,
   },
   { path: 'mesas-dispo', component: MesasDispoComponent },
   { path: 'facturas', component: FacturasComponent },
