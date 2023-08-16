@@ -1,0 +1,11 @@
+body {
+    background-image: url("../../../assets/pexels-vincent-ma-janssen-1310777.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center; 
+}
+

@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AddEditEmpleadoComponent } from './components/add-edit-empleado/add-edit-empleado.component';
 import { ListEmpleadoComponent } from './components/list-empleado/list-empleado.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms'
 import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
 
@@ -24,6 +24,14 @@ import { FilterEspecialidadPipe } from './pipes/filter-especialidad.pipe';
 import { AddEditBebidaComponent } from './components/add-edit-bebida/add-edit-bebida.component';
 import { ListBebidaComponent } from './components/list-bebida/list-bebida.component';
 import { FilterBebidaPipe } from './pipes/filter-bebida.pipe';
+import { RegistroComponent } from './components/registro/registro.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { AddEditEquipoComponent } from './components/add-edit-equipo/add-edit-equipo.component';
+import { ListEquipoComponent } from './components/list-equipo/list-equipo.component';
+import { FilterEquipoPipe } from './pipes/filter-equipo.pipe';
+import { ListCajaComponent } from './components/list-caja/list-caja.component';
+import { AddEditCajaComponent } from './components/add-edit-caja/add-edit-caja.component';
+import { FilterCajaPipe } from './pipes/filter-caja.pipe';
 
 @NgModule({
   declarations: [
@@ -46,6 +54,13 @@ import { FilterBebidaPipe } from './pipes/filter-bebida.pipe';
     AddEditBebidaComponent,
     ListBebidaComponent,
     FilterBebidaPipe,
+    RegistroComponent,
+    AddEditEquipoComponent,
+    ListEquipoComponent,
+    FilterEquipoPipe,
+    ListCajaComponent,
+    AddEditCajaComponent,
+    FilterCajaPipe,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +69,13 @@ import { FilterBebidaPipe } from './pipes/filter-bebida.pipe';
     ReactiveFormsModule,
     FormsModule 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

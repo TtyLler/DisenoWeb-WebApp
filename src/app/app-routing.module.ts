@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
 import { ListEmpleadoComponent } from './components/list-empleado/list-empleado.component';
 import { AddEditEmpleadoComponent } from './components/add-edit-empleado/add-edit-empleado.component';
 import { FacturasComponent } from './facturas/facturas.component';
@@ -13,11 +14,26 @@ import { ListEspecialidadComponent } from './components/list-especialidad/list-e
 import { AddEditEspecialidadComponent } from './components/add-edit-especialidad/add-edit-especialidad.component';
 import { AddEditBebidaComponent } from './components/add-edit-bebida/add-edit-bebida.component';
 import { ListBebidaComponent } from './components/list-bebida/list-bebida.component';
+import { AddEditEquipoComponent } from './components/add-edit-equipo/add-edit-equipo.component';
+import { ListEquipoComponent } from './components/list-equipo/list-equipo.component';
+import { ListCajaComponent } from './components/list-caja/list-caja.component';
+import { AddEditCajaComponent } from './components/add-edit-caja/add-edit-caja.component';
+
+import { logincheckGuard } from './guard/logincheck.guard';
 
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent,
   },
   {
     path: 'login',
@@ -25,55 +41,97 @@ const routes: Routes = [
   },
   {
     path: 'listempleado',
+    canActivate: [logincheckGuard],
     component: ListEmpleadoComponent,
   },
   {
     path: 'add-empleado',
+    canActivate: [logincheckGuard],
     component: AddEditEmpleadoComponent,
   },
   {
     path: 'edit-empleado/:id',
+    canActivate: [logincheckGuard],
     component: AddEditEmpleadoComponent,
   },
   {
     path: 'listmesa',
+    canActivate: [logincheckGuard],
     component: ListMesaComponent,
   },
   {
     path: 'add-mesa',
+    canActivate: [logincheckGuard],
     component: AddEditMesaComponent,
   },
   {
     path: 'edit-mesa/:id',
+    canActivate: [logincheckGuard],
     component: AddEditMesaComponent,
   },
   {
     path: 'listespecialidad',
+    canActivate: [logincheckGuard],
     component: ListEspecialidadComponent,
   },
   {
     path: 'add-especialidad',
+    canActivate: [logincheckGuard],
     component: AddEditEspecialidadComponent,
   },
   {
     path: 'edit-especialidad/:id',
+    canActivate: [logincheckGuard],
     component: AddEditEspecialidadComponent,
   },
   {
     path: 'listbebida',
+    canActivate: [logincheckGuard],
     component: ListBebidaComponent,
   },
   {
     path: 'add-bebida',
+    canActivate: [logincheckGuard],
     component: AddEditBebidaComponent,
   },
   {
     path: 'edit-bebida/:id',
+    canActivate: [logincheckGuard],
     component: AddEditBebidaComponent,
   },
-  { path: 'mesas-dispo', component: MesasDispoComponent },
-  { path: 'facturas', component: FacturasComponent },
-  { path: 'menu', component: MenuComponent },
+  {
+    path: 'listequipo',
+    canActivate: [logincheckGuard],
+    component: ListEquipoComponent,
+  },
+  {
+    path: 'add-equipo',
+    canActivate: [logincheckGuard],
+    component: AddEditEquipoComponent,
+  },
+  {
+    path: 'edit-equipo/:id',
+    canActivate: [logincheckGuard],
+    component: AddEditEquipoComponent,
+  },
+  {
+    path: 'listcaja',
+    canActivate: [logincheckGuard],
+    component: ListCajaComponent,
+  },
+  {
+    path: 'add-caja',
+    canActivate: [logincheckGuard],
+    component: AddEditCajaComponent,
+  },
+  {
+    path: 'edit-caja/:id',
+    canActivate: [logincheckGuard],
+    component: AddEditCajaComponent,
+  },
+  { path: 'mesas-dispo',canActivate: [logincheckGuard], component: MesasDispoComponent },
+  { path: 'facturas',canActivate: [logincheckGuard], component: FacturasComponent },
+  { path: 'menu', canActivate: [logincheckGuard], component: MenuComponent },
   {
     path: '**',
     redirectTo: '',
