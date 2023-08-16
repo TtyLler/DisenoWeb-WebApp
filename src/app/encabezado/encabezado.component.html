@@ -1,7 +1,11 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Restaurante</a>
+    <a id="linkLogo" routerLink="/home"
+      ><img
+        src="../../assets/Logo.png"
+        alt="Logo"
+        style="width: 100%; height: 35px; border-radius: 5px"
+    /></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -13,6 +17,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
@@ -57,10 +62,11 @@
           <a class="nav-link" routerLink="/home">Home</a>
         </li>
 
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="'/mesas-dispo'"
-            >Mesas Disponibles</a
-          >
+          <a class="nav-link" [routerLink]="'/mesas-dispo'">Mesas</a>
         </li>
 
         <li class="nav-item" routerLinkActive="active">
@@ -73,7 +79,112 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" href="#">Consecutivos</a>
         </li>
+        <ng-container *ngIf="getRol() === 'Admin'">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Administración
+            </a>
+
+            <ul
+              class="dropdown-menu"
+              routerLinkActive="active"
+              aria-labelledby="navbarDropdown"
+            >
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listempleado"
+                  >Empleados</a
+                >
+              </li>
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listmesa">Mesas</a>
+              </li>
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listespecialidad"
+                  >Especialidades</a
+                >
+              </li>
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listbebida">Bebidas</a>
+              </li>
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listequipo">Equipo y Utensilios</a>
+              </li>
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listcaja">Cajas</a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" routerLink="/limpiesa-higiene">Limpieza e Higiene </a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/listproveedor">Proveedores</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/tecnologia">Tecnologia</a>
+              </li>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+      <ng-container *ngIf="getRol() === 'Admin'">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Administración
+            </a>
+
+            <ul
+              class="dropdown-menu"
+              routerLinkActive="active"
+              aria-labelledby="navbarDropdown"
+            >
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listempleado"
+                  >Empleados</a
+                >
+              </li>
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listmesa">Mesas</a>
+              </li>
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listespecialidad"
+                  >Especialidades</a
+                >
+              </li>
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listbebida">Bebidas</a>
+              </li>
+              <li routerLinkActive="active">
+                <a class="dropdown-item" routerLink="/listequipo">Equipo</a>
+              </li>
+            </ul>
+          </li>
+        </ng-container>
+      <ul class="navbar-nav">
+        <ng-container *ngIf="!loggedIn(); else loggeOut">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="'/login'">Login</a>
+          </li>
+        </ng-container>
+        <ng-template #loggeOut>
+          <li class="nav-item">
+            <button class="nav-link btn btn-link" (click)="logoutUser()">
+              Logout
+            </button>
+          </li>
+        </ng-template>
       </ul>
     </div>
-  </div>
-</nav>

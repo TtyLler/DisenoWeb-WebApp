@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AddEditEmpleadoComponent } from './components/add-edit-empleado/add-edit-empleado.component';
 import { ListEmpleadoComponent } from './components/list-empleado/list-empleado.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms'
 import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
 import { FacturasComponent } from './facturas/facturas.component';
@@ -22,16 +22,6 @@ import { FilterEspecialidadPipe } from './pipes/filter-especialidad.pipe';
 import { AddEditBebidaComponent } from './components/add-edit-bebida/add-edit-bebida.component';
 import { ListBebidaComponent } from './components/list-bebida/list-bebida.component';
 import { FilterBebidaPipe } from './pipes/filter-bebida.pipe';
-import { LimpiesaHigieneComponent } from './limpiesa-higiene/limpiesa-higiene.component';
-import { TecnologiaComponent } from './tecnologia/tecnologia.component';
-import { AddLimpiezaComponent } from './components/add-limpieza/add-limpieza.component';
-import { FilterLimpiezaPipe } from './pipes/filter-limpieza.pipe';
-import { AddTecnologiaComponent } from './components/add-tecnologia/add-tecnologia.component';
-import { FilterTecnologiaPipe } from './pipes/filter-tecnologia.pipe';
-import { AddProveedorComponent } from './components/add-proveedor/add-proveedor.component';
-import { ProveedorComponent } from './list-proveedor/list-proveedor.component';
-import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
-
 
 @NgModule({
   declarations: [
@@ -54,15 +44,6 @@ import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
     AddEditBebidaComponent,
     ListBebidaComponent,
     FilterBebidaPipe,
-    LimpiesaHigieneComponent,
-    TecnologiaComponent,
-    AddLimpiezaComponent,
-    FilterLimpiezaPipe,
-    FilterTecnologiaPipe,
-    AddTecnologiaComponent,
-    AddProveedorComponent,
-    ProveedorComponent,
-    FilterProveedorPipe
   ],
   imports: [
     BrowserModule,
@@ -71,7 +52,13 @@ import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
     ReactiveFormsModule,
     FormsModule 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
