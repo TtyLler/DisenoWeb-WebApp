@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
@@ -11,7 +10,6 @@ import { ListEmpleadoComponent } from './components/list-empleado/list-empleado.
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms'
 import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
-
 import { FacturasComponent } from './facturas/facturas.component';
 import { MenuComponent } from './menu/menu.component';
 import { FilterPipe } from './pipes/filterEmpleado.pipe';
@@ -24,6 +22,16 @@ import { FilterEspecialidadPipe } from './pipes/filter-especialidad.pipe';
 import { AddEditBebidaComponent } from './components/add-edit-bebida/add-edit-bebida.component';
 import { ListBebidaComponent } from './components/list-bebida/list-bebida.component';
 import { FilterBebidaPipe } from './pipes/filter-bebida.pipe';
+import { LimpiesaHigieneComponent } from './limpiesa-higiene/limpiesa-higiene.component';
+import { TecnologiaComponent } from './tecnologia/tecnologia.component';
+import { AddLimpiezaComponent } from './components/add-limpieza/add-limpieza.component';
+import { FilterLimpiezaPipe } from './pipes/filter-limpieza.pipe';
+import { AddTecnologiaComponent } from './components/add-tecnologia/add-tecnologia.component';
+import { FilterTecnologiaPipe } from './pipes/filter-tecnologia.pipe';
+import { AddProveedorComponent } from './components/add-proveedor/add-proveedor.component';
+import { ProveedorComponent } from './list-proveedor/list-proveedor.component';
+import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +54,15 @@ import { FilterBebidaPipe } from './pipes/filter-bebida.pipe';
     AddEditBebidaComponent,
     ListBebidaComponent,
     FilterBebidaPipe,
+    LimpiesaHigieneComponent,
+    TecnologiaComponent,
+    AddLimpiezaComponent,
+    FilterLimpiezaPipe,
+    FilterTecnologiaPipe,
+    AddTecnologiaComponent,
+    AddProveedorComponent,
+    ProveedorComponent,
+    FilterProveedorPipe
   ],
   imports: [
     BrowserModule,
