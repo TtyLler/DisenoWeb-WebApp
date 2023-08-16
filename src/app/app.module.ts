@@ -53,11 +53,6 @@ import { FilterBebidaPipe } from './pipes/filter-bebida.pipe';
     FormsModule 
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true
-    }
   ],
   bootstrap: [AppComponent]
 })
