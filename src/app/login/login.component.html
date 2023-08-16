@@ -1,22 +1,21 @@
 <body>
     <div class="container-fluid" id="containerLogin">
         <div class="login-container mt-5">
-            <div style="text-align: center; margin-bottom: 20px">
-                <img src="https://www.salgamosacomer.com/wp-content/gallery/tipico-don-juan/Restaurantes-t%C3%ADpico-don-Juan-caf%C3%A9-chorreado.jpg" alt="Caballo" width="300" height="200" style="border-radius: 15px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="https://www.salgamosacomer.com/wp-content/gallery/tipico-don-juan/Restaurantes-t%C3%ADpico-don-Juan-caf%C3%A9-chorreado.jpg" alt="Caballo" width="300" height="200">
             </div>
     
             <h2 class="mb-4">Inicio de Sesión</h2>
-            <form [formGroup]="formLogin" (ngSubmit)="iniciarSesion()">
+            <form>
                 <div class="form-group narrow-input">
-                    <label for="NombreUsuario">Nombre de usuario</label>
-                    <input type="text" class="form-control form-control-sm" formControlName="NombreUsuario" placeholder="Ingrese su nombre de usuario">
+                    <label for="username">Nombre de usuario</label>
+                    <input type="text" class="form-control form-control-sm" id="username" placeholder="Ingrese su nombre de usuario">
                 </div>
                 <div class="form-group narrow-input password-space">
-                    <label for="Contrasena">Contraseña</label>
-                    <input type="password" class="form-control form-control-sm" formControlName="Contrasena" placeholder="Ingrese su contraseña">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control form-control-sm" id="password" placeholder="Ingrese su contraseña">
                 </div>
-                <a id="registerLink" routerLink="/registro" class="btn btn-primary">Registrarse</a>
-                <button type="submit" class="btn btn-success login-btn" id="loginBtn">Ingresar</button>
+                <button type="submit" class="btn btn-primary login-btn" (click)="iniciarSesion()">Ingresar</button>
             </form>
         </div>
     </div>

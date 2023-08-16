@@ -1,10 +1,11 @@
 body {
-    background-image: url("../../assets/pexels-vincent-ma-janssen-1310777.jpg");
+    background-image: url("https://media-cdn.tripadvisor.com/media/photo-s/11/0b/b5/ff/photo2jpg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    width: 100vw;
-    height: 100vh;
+    min-height: 90vh;
+    margin: 0;
+    padding: 0;
     display: grid;
     place-items: center; 
 }
@@ -14,7 +15,7 @@ body {
 }
 
 .login-container {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.7);
     padding: 20px;
     max-width: 400px;
     margin: 0 auto;
@@ -33,17 +34,11 @@ p {
 
 /* Clase personalizada para hacer los campos de entrada más angostos */
 .narrow-input {
-    max-width: 300px;
+    max-width: 210px;
     margin: 0 auto;
 }
 
 /* Espacio después del campo de contraseña */
 .password-space {
-    margin-bottom: 25px;
-}
-#registerLink { 
-    margin-right: 110px;
-}
-input{
-    box-shadow: 3px 3px 3px rgba(180, 180, 180,0.6);
+    margin-bottom: 10px;
 }
