@@ -16,7 +16,7 @@ export class ProveedorService {
   private apiUrl: string;
   constructor(private http: HttpClient) { 
     this.appUrl = 'http://localhost:8181/'
-    this.apiUrl = 'proveedor/'
+    this.apiUrl = 'proveedores/'
   }
 
   getListProveedors(): Observable<Proveedor[]>{

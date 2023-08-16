@@ -14,19 +14,17 @@ import { ListEspecialidadComponent } from './components/list-especialidad/list-e
 import { AddEditEspecialidadComponent } from './components/add-edit-especialidad/add-edit-especialidad.component';
 import { AddEditBebidaComponent } from './components/add-edit-bebida/add-edit-bebida.component';
 import { ListBebidaComponent } from './components/list-bebida/list-bebida.component';
+import { AddEditEquipoComponent } from './components/add-edit-equipo/add-edit-equipo.component';
+import { ListEquipoComponent } from './components/list-equipo/list-equipo.component';
+import { ListCajaComponent } from './components/list-caja/list-caja.component';
+import { AddEditCajaComponent } from './components/add-edit-caja/add-edit-caja.component';
 import { LimpiesaHigieneComponent } from './limpiesa-higiene/limpiesa-higiene.component';
 import { TecnologiaComponent } from './tecnologia/tecnologia.component';
 import { ProveedorComponent } from './list-proveedor/list-proveedor.component';
 import { AddLimpiezaComponent } from './components/add-limpieza/add-limpieza.component';
 import { AddTecnologiaComponent } from './components/add-tecnologia/add-tecnologia.component';
 import { AddProveedorComponent } from './components/add-proveedor/add-proveedor.component';
-import { AddEditEquipoComponent } from './components/add-edit-equipo/add-edit-equipo.component';
-import { ListEquipoComponent } from './components/list-equipo/list-equipo.component';
-import { ListCajaComponent } from './components/list-caja/list-caja.component';
-import { AddEditCajaComponent } from './components/add-edit-caja/add-edit-caja.component';
-
 import { logincheckGuard } from './guard/logincheck.guard';
-
 
 const routes: Routes = [
   {
@@ -106,23 +104,6 @@ const routes: Routes = [
     canActivate: [logincheckGuard],
     component: AddEditBebidaComponent,
   },
-
-  { path: 'mesas-dispo', component: MesasDispoComponent },
-  { path: 'facturas', component: FacturasComponent },
-  { path: 'menu', component: MenuComponent },
-  { path: 'limpiesa-higiene', component: LimpiesaHigieneComponent },
-  { path: 'tecnologia', component: TecnologiaComponent },
-  { path: 'listproveedor', component:ProveedorComponent},
-  { path: 'add-limpieza', component: AddLimpiezaComponent},
-  { path: 'edit-limpieza/:id', component: AddLimpiezaComponent},
-  { path: 'limpiesa-higiene', component: LimpiesaHigieneComponent},
-  { path: 'add-tecnologia', component: AddTecnologiaComponent},
-  { path: 'add-tecnologia/:id', component: AddTecnologiaComponent},
-  { path: 'add-proveedor', component: AddProveedorComponent},
-  { path: 'add-proveedor/:id', component: AddProveedorComponent},
-
-  
- 
   {
     path: 'listequipo',
     canActivate: [logincheckGuard],
@@ -153,10 +134,19 @@ const routes: Routes = [
     canActivate: [logincheckGuard],
     component: AddEditCajaComponent,
   },
+  { path: 'limpiesa-higiene', component: LimpiesaHigieneComponent },
+  { path: 'tecnologia', component: TecnologiaComponent },
+  { path: 'listproveedor', component:ProveedorComponent},
+  { path: 'add-limpieza', component: AddLimpiezaComponent},
+  { path: 'edit-limpieza/:id', component: AddLimpiezaComponent},
+  { path: 'limpiesa-higiene', component: LimpiesaHigieneComponent},
+  { path: 'add-tecnologia', component: AddTecnologiaComponent},
+  { path: 'add-tecnologia/:id', component: AddTecnologiaComponent},
+  { path: 'add-proveedor', component: AddProveedorComponent},
+  { path: 'add-proveedor/:id', component: AddProveedorComponent},
   { path: 'mesas-dispo',canActivate: [logincheckGuard], component: MesasDispoComponent },
   { path: 'facturas',canActivate: [logincheckGuard], component: FacturasComponent },
   { path: 'menu', canActivate: [logincheckGuard], component: MenuComponent },
-
   {
     path: '**',
     redirectTo: '',
