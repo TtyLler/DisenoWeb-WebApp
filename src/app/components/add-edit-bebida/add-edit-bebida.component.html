@@ -1,0 +1,78 @@
+<app-encabezado></app-encabezado>
+<div class="row mt-4">
+    <div class="col-lg-4 offset-lg-4">
+      <div class="card text-white bg-dark mb-3" style="max-width: 40rem">
+        <div class="card-header text-center">{{ operacion }} Bebida</div>
+        <div class="card-body">
+          <form [formGroup]="formBebida" (ngSubmit)="addBebida()">
+            <input
+              formControlName="CodigoBebida"
+              type="text"
+              class="form-control"
+              placeholder="Codigo de la Bebida"
+            />
+            <input
+              formControlName="TipoBebida"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Tipo de la bebida"
+            />
+            <input
+              formControlName="Marca"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Marca de la bebida"
+            />
+            <input
+              formControlName="Precio"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Precio de la bebida"
+            />
+            <input
+              formControlName="CodigoRestaurante"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Codigo del Restaurante"
+            />
+            <input
+              formControlName="Pais"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Pais de origen"
+            />
+            <input
+              formControlName="CodigoMedida"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Codigo de medida"
+            />
+            <input
+              formControlName="Ano"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Año de elaboracion"
+            />
+            <section class="row mt-3 text-center">
+              <div class="col-lg-6">
+                <button [disabled]="formBebida.invalid" type="submit" class="btn btn-primary btn-lg">
+                  Aceptar
+                </button>
+              </div>
+              <div class="col-lg-6">
+                <button
+                  routerLink="/listbebida"
+                  type="button"
+                  class="btn btn-danger btn-lg"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </section>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

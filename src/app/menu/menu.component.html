@@ -1,0 +1,23 @@
+<app-encabezado></app-encabezado>
+<div class="container mt-5">
+    <h2>Menú de Comida</h2>
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Tipo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let comida of menu">
+          <td>{{ comida.codigo }}</td>
+          <td>{{ comida.nombre }}</td>
+          <td>{{ comida.precio }}</td>
+          <td>{{ comida.tipo }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
