@@ -1,0 +1,40 @@
+<div class="row mt-4">
+    <div class="col-lg-4 offset-lg-4">
+      <div class="card text-white bg-dark mb-3" style="max-width: 40rem">
+        <div class="card-header text-center">{{ operacion }} Pais</div>
+        <div class="card-body">
+          <form [formGroup]="formPais" (ngSubmit)="addPais()">
+            <input
+              formControlName="CodigoPais"
+              type="text"
+              class="form-control"
+              placeholder="Codigo de Pais"
+            />
+            <input
+              formControlName="NombrePais"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Nombre del Pais"
+            />
+            <section class="row mt-3 text-center">
+              <div class="col-lg-6">
+                <button [disabled]="formPais.invalid" type="submit" class="btn btn-primary btn-lg">
+                  Aceptar
+                </button>
+              </div>
+              <div class="col-lg-6">
+                <button
+                  routerLink="/listpais"
+                  type="button"
+                  class="btn btn-danger btn-lg"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </section>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

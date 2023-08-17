@@ -1,0 +1,58 @@
+<div class="row mt-4">
+    <div class="col-lg-4 offset-lg-4">
+      <div class="card text-white bg-dark mb-3" style="max-width: 40rem">
+        <div class="card-header text-center">{{ operacion }} Comestible</div>
+        <div class="card-body">
+          <form [formGroup]="formComestible" (ngSubmit)="addComestible()">
+            <input
+              formControlName="CodigoComestible"
+              type="text"
+              class="form-control"
+              placeholder="Codigo de Comestible"
+            />
+            <input
+              formControlName="DescripcionComestible"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Descripcion de Comestible"
+            />
+            <input
+              formControlName="CantidadComestible"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Cantidad de Comestible"
+            />
+            <input
+              formControlName="CodigoRestaurante"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Codigo de Restaurante"
+            />
+            <input
+              formControlName="TipoComestible"
+              type="text"
+              class="form-control mt-3"
+              placeholder="Tipo de Comestible"
+            />
+            <section class="row mt-3 text-center">
+              <div class="col-lg-6">
+                <button [disabled]="formComestible.invalid" type="submit" class="btn btn-primary btn-lg">
+                  Aceptar
+                </button>
+              </div>
+              <div class="col-lg-6">
+                <button
+                  routerLink="/listcomestible"
+                  type="button"
+                  class="btn btn-danger btn-lg"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </section>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

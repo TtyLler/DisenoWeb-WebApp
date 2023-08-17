@@ -24,6 +24,15 @@ import { FilterEspecialidadPipe } from './pipes/filter-especialidad.pipe';
 import { AddEditBebidaComponent } from './components/add-edit-bebida/add-edit-bebida.component';
 import { ListBebidaComponent } from './components/list-bebida/list-bebida.component';
 import { FilterBebidaPipe } from './pipes/filter-bebida.pipe';
+import { AddEditPaisComponent } from './components/add-edit-pais/add-edit-pais.component';
+import { ListPaisComponent } from './components/list-pais/list-pais.component';
+import { FilterPaisPipe } from './pipes/filter-pais.pipe';
+import { AddEditComestibleComponent } from './components/add-edit-comestible/add-edit-comestible.component';
+import { ListComestibleComponent } from './components/list-comestible/list-comestible.component';
+import { FilterComestiblePipe } from './pipes/filter-comestible.pipe';
+import { ListDesechableComponent } from './components/list-desechable/list-desechable.component';
+import { AddEditDesechableComponent } from './components/add-edit-desechable/add-edit-desechable.component';
+import { FilterDesechablePipe } from './pipes/filter-desechable.pipe';
 
 @NgModule({
   declarations: [
@@ -46,6 +55,15 @@ import { FilterBebidaPipe } from './pipes/filter-bebida.pipe';
     AddEditBebidaComponent,
     ListBebidaComponent,
     FilterBebidaPipe,
+    AddEditPaisComponent,
+    ListPaisComponent,
+    FilterPaisPipe,
+    AddEditComestibleComponent,
+    ListComestibleComponent,
+    FilterComestiblePipe,
+    ListDesechableComponent,
+    AddEditDesechableComponent,
+    FilterDesechablePipe,
   ],
   imports: [
     BrowserModule,
