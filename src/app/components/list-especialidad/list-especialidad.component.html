@@ -1,3 +1,4 @@
+<app-encabezado></app-encabezado>
 <div class="container mt-3">
     <section>
       <h4>Listado de Especialidades</h4>
@@ -21,7 +22,7 @@
           <td>{{ item.CodigoEspecial }}</td>
           <td>{{ item.NombreEspecial }}</td>
           <td>{{ item.DescripcionEspecial }}</td>
-          <td>{{ item.Precio }}</td>
+          <td>{{ item.Precio |currency}}</td>
           <td>
             <button type="button" class="btn btn-primary btn-sm" routerLink="/edit-especialidad/{{item.id}}">
               Editar

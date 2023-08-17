@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AddEditEmpleadoComponent } from './components/add-edit-empleado/add-edit-empleado.component';
 import { ListEmpleadoComponent } from './components/list-empleado/list-empleado.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms'
 import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
 
@@ -34,6 +34,23 @@ import { ListDesechableComponent } from './components/list-desechable/list-desec
 import { AddEditDesechableComponent } from './components/add-edit-desechable/add-edit-desechable.component';
 import { FilterDesechablePipe } from './pipes/filter-desechable.pipe';
 
+import { RegistroComponent } from './components/registro/registro.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { AddEditEquipoComponent } from './components/add-edit-equipo/add-edit-equipo.component';
+import { ListEquipoComponent } from './components/list-equipo/list-equipo.component';
+import { FilterEquipoPipe } from './pipes/filter-equipo.pipe';
+import { ListCajaComponent } from './components/list-caja/list-caja.component';
+import { AddEditCajaComponent } from './components/add-edit-caja/add-edit-caja.component';
+import { FilterCajaPipe } from './pipes/filter-caja.pipe';
+import { LimpiesaHigieneComponent } from './limpiesa-higiene/limpiesa-higiene.component';
+import { TecnologiaComponent } from './tecnologia/tecnologia.component';
+import { AddLimpiezaComponent } from './components/add-limpieza/add-limpieza.component';
+import { FilterLimpiezaPipe } from './pipes/filter-limpieza.pipe';
+import { AddTecnologiaComponent } from './components/add-tecnologia/add-tecnologia.component';
+import { FilterTecnologiaPipe } from './pipes/filter-tecnologia.pipe';
+import { AddProveedorComponent } from './components/add-proveedor/add-proveedor.component';
+import { ProveedorComponent } from './list-proveedor/list-proveedor.component';
+import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +81,22 @@ import { FilterDesechablePipe } from './pipes/filter-desechable.pipe';
     ListDesechableComponent,
     AddEditDesechableComponent,
     FilterDesechablePipe,
+    RegistroComponent,
+    AddEditEquipoComponent,
+    ListEquipoComponent,
+    FilterEquipoPipe,
+    ListCajaComponent,
+    AddEditCajaComponent,
+    FilterCajaPipe,
+    LimpiesaHigieneComponent,
+    TecnologiaComponent,
+    FilterLimpiezaPipe,
+    AddTecnologiaComponent,
+    FilterTecnologiaPipe,
+    AddProveedorComponent,
+    ProveedorComponent,
+    FilterProveedorPipe,
+    AddLimpiezaComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +105,13 @@ import { FilterDesechablePipe } from './pipes/filter-desechable.pipe';
     ReactiveFormsModule,
     FormsModule 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
