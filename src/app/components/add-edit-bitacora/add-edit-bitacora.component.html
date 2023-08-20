@@ -1,0 +1,54 @@
+<app-encabezado></app-encabezado>
+<div class="row mt-4">
+  <div class="col-lg-4 offset-lg-4">
+    <div class="card text-white bg-dark mb-3" style="max-width: 40rem">
+      <div class="card-header text-center">{{ operacion }} Bitacora</div>
+      <div class="card-body">
+        <form [formGroup]="formBitacora" (ngSubmit)="addBitacora()">
+          <input
+            formControlName="CodigoRegistro"
+            type="text"
+            class="form-control"
+            placeholder="Codigo de la bitacora"
+          />
+          <input
+            formControlName="Usuario"
+            type="text"
+            class="form-control mt-3"
+            placeholder="Nombre de usuario"
+          />
+          <input
+            formControlName="FechaHora"
+            type="text"
+            class="form-control mt-3"
+            placeholder="Fecha y Hora"
+          />
+          <input
+            formControlName="Descripcion"
+            type="text"
+            class="form-control mt-3"
+            placeholder="Accion realizada"
+          />
+          <section class="row mt-3 text-center">
+            <div class="col-lg-6">
+              <button [disabled]="formBitacora.invalid" type="submit" class="btn btn-primary btn-lg">
+                Aceptar
+              </button>
+            </div>
+            <div class="col-lg-6">
+              <button
+                routerLink="/listbitacora"
+                type="button"
+                class="btn btn-danger btn-lg"
+              >
+                Cancelar
+              </button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

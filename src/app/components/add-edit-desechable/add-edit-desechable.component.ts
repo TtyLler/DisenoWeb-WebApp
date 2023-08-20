@@ -3,7 +3,10 @@ import { Desechable } from 'src/app/interfaces/desechable';
 import { DesechableService } from 'src/app/services/desechable.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 
 @Component({
   selector: 'app-add-edit-desechable',
@@ -14,7 +17,7 @@ export class AddEditDesechableComponent {
   formDesechable: FormGroup
   id: any
   operacion: string = "Agregar "
-  constructor(private _desechableService: DesechableService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute ){
+  constructor(private _desechableService: DesechableService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute,private _loginService: LoginService, private _bitacoraService: BitacoraService ){
     this.formDesechable = this.fb.group({
       CodigoDesechable: ['', Validators.required],
       NombreDesechable: ['', Validators.required],
@@ -55,10 +58,12 @@ export class AddEditDesechableComponent {
     if(this.id != null){
       desechable.id = this.id
       this._desechableService.updateDesechable(this.id, desechable).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.UPDATE}Desechable`)).subscribe()
         this.router.navigate(['/listdesechable'])
       })
     }else{
       this._desechableService.saveDesechable(desechable).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.ADD}Desechable`)).subscribe()
         this.router.navigate(['/listdesechable'])
       })
     }

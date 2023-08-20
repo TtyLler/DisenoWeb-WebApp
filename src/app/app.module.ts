@@ -51,6 +51,9 @@ import { FilterTecnologiaPipe } from './pipes/filter-tecnologia.pipe';
 import { AddProveedorComponent } from './components/add-proveedor/add-proveedor.component';
 import { ProveedorComponent } from './list-proveedor/list-proveedor.component';
 import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
+import { FilterBitacoraPipe } from './pipes/filter-bitacora.pipe';
+import { AddEditBitacoraComponent } from './components/add-edit-bitacora/add-edit-bitacora.component';
+import { ListBitacoraComponent } from './components/list-bitacora/list-bitacora.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,7 +99,10 @@ import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
     AddProveedorComponent,
     ProveedorComponent,
     FilterProveedorPipe,
-    AddLimpiezaComponent
+    AddLimpiezaComponent,
+    FilterBitacoraPipe,
+    AddEditBitacoraComponent,
+    ListBitacoraComponent
   ],
   imports: [
     BrowserModule,

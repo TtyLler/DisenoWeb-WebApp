@@ -27,13 +27,16 @@ export class LoginService {
   logoutUser(){
     localStorage.removeItem('token')
     localStorage.removeItem('Rol')
+    localStorage.removeItem('user')
     this.router.navigate(['/home'])
   }
 
   loggedIn(): boolean{
     return !!localStorage.getItem('token')
   }
-
+  getUser(){
+    return localStorage.getItem('user')
+  }
   getToken(){
     return localStorage.getItem('token')
   }
