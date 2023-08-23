@@ -54,6 +54,8 @@ import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
 import { FilterBitacoraPipe } from './pipes/filter-bitacora.pipe';
 import { AddEditBitacoraComponent } from './components/add-edit-bitacora/add-edit-bitacora.component';
 import { ListBitacoraComponent } from './components/list-bitacora/list-bitacora.component';
+import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,14 +104,16 @@ import { ListBitacoraComponent } from './components/list-bitacora/list-bitacora.
     AddLimpiezaComponent,
     FilterBitacoraPipe,
     AddEditBitacoraComponent,
-    ListBitacoraComponent
+    ListBitacoraComponent,
+    ReservacionesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
+    FontAwesomeModule 
   ],
   providers: [
     {

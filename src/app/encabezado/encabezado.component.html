@@ -21,6 +21,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/reservaciones/{{getName()}}">Reservaciones</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="'/mesas-dispo'">Mesas</a>
         </li>
 
@@ -30,9 +33,6 @@
 
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="'/menu'">Menu</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" href="#">Consecutivos</a>
         </li>
         <ng-container *ngIf="getRol() === 'Admin'">
           <li class="nav-item dropdown">

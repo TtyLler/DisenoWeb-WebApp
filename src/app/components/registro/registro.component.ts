@@ -13,6 +13,7 @@ export class RegistroComponent {
   formRegistro: FormGroup
   constructor(private _registroService: RegistroService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute){
     this.formRegistro = this.fb.group({
+      Nombre: ['', Validators.required],
       NombreUsuario: ['', Validators.required],
       Contrasena: ['', Validators.required]
     }) 
@@ -20,6 +21,7 @@ export class RegistroComponent {
 
   registro(){
     const user: Registro = {
+      Nombre: this.formRegistro.value.Nombre,
       Contrasena: this.formRegistro.value.Contrasena,
       NombreUsuario: this.formRegistro.value.NombreUsuario,
     }

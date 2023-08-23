@@ -18,8 +18,14 @@ export class EncabezadoComponent {
   }
 
   logoutUser(){
-    this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(), `${this._loginService.getUser()}${DESCRIPTION_TYPES.LOGOUT}`)).subscribe()
+    if(this.getRol() === 'Admin'){
+      this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(), `${this._loginService.getUser()}${DESCRIPTION_TYPES.LOGOUT}`)).subscribe()
+    }
     this._loginService.logoutUser()
+  }
+
+  getName () {
+    return this._loginService.getName()?.toString()
   }
 
 

@@ -27,7 +27,6 @@ export class ListPaisComponent {
     });
   }
   deletePais(id: string) {
-    console.log(id);
     this._paisService.deletePais(id).subscribe(() => {
       this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(), `${DESCRIPTION_TYPES.DELETE}Pais`)).subscribe()
       this.getListPaises();

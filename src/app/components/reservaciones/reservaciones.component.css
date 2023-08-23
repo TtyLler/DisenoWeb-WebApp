@@ -1,0 +1,14 @@
+body {
+  display: grid;
+  place-items: center;
+}
+*{ 
+  margin: 0px;
+}
+
+#container {
+  margin-top: 12%;
+}
+.card-header {
+  text-align: center;
+}

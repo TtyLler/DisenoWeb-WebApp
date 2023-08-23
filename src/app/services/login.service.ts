@@ -28,6 +28,7 @@ export class LoginService {
     localStorage.removeItem('token')
     localStorage.removeItem('Rol')
     localStorage.removeItem('user')
+    localStorage.removeItem('name')
     this.router.navigate(['/home'])
   }
 
@@ -39,6 +40,9 @@ export class LoginService {
   }
   getToken(){
     return localStorage.getItem('token')
+  }
+  getName(){
+    return localStorage.getItem('name')
   }
 
   getRol(){

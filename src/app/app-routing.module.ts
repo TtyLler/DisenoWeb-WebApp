@@ -33,6 +33,7 @@ import { AddProveedorComponent } from './components/add-proveedor/add-proveedor.
 import { logincheckGuard } from './guard/logincheck.guard';
 import { AddEditBitacoraComponent } from './components/add-edit-bitacora/add-edit-bitacora.component';
 import { ListBitacoraComponent } from './components/list-bitacora/list-bitacora.component';
+import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'reservaciones/:id',
+    canActivate: [logincheckGuard],
+    component: ReservacionesComponent,
   },
   {
     path: 'listempleado',
