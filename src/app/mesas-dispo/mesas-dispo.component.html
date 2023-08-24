@@ -1,13 +1,29 @@
 <app-encabezado></app-encabezado>
-<div class="container-fluid">
-    <h2 class="mb-4">Mesas Disponibles</h2>
-    <div class="row">
-      <div class="col-md-3" *ngFor="let mesa of mesas">
-        <div class="mesa" [ngClass]="{ 'selected': selectedTable === mesa.numero }" (click)="verFactura(mesa.numero)">
-          <p class="numero-mesa">{{ mesa.numero }}</p>
-          <img src="https://cdn-icons-png.flaticon.com/512/1889/1889949.png" alt="Silla" class="icono-silla">
+<div class="background-image">
+  <div class="container">
+    <div class="jumbotron">
+      <section>
+        <h4 class="text-center">Mesas Disponibles</h4>
+      </section>
+      <section class="title mb-3">
+        <div class="d-flex align-items-center"></div>
+      </section>
+      <div class="mesas-container">
+        <div class="row">
+          <div class="col-md-3" *ngFor="let index of [1, 2, 3, 4]">
+            <div class="mesa" [routerLink]="['/food', index]">
+              Mesa {{ index }}
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-3" *ngFor="let index of [5, 6, 7, 8]">
+            <div class="mesa" [routerLink]="['/food', index]">
+              Mesa {{ index}}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

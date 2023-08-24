@@ -13,7 +13,10 @@ export class AddLimpiezaComponent {
   formLimpieza: FormGroup;
   id: any;
   operacion: string = "Agregar "
-  constructor(private _limpiezaService: LimpiezaService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute ){
+  constructor(private _limpiezaService: LimpiezaService, 
+    private fb: FormBuilder, 
+    private router: Router, 
+    private aRouter: ActivatedRoute ){
     this.formLimpieza = this.fb.group({
       CodigoLimpieza: ['', Validators.required],
       NombreLimpieza: ['', Validators.required],

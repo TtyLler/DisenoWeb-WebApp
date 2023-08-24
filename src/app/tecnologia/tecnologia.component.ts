@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
 import { Tecnologia } from 'src/app/interfaces/tecnologia';
 import { TecnologiaService } from 'src/app/services/tecnologia.service';
+interface Producto {
+  CodigoTec: string;
+  RestauranteTec: string;
+  NombreTec: string;
+  MarcaTec: string;
+  CantidadTec: number;
+  DescripcionTec: string;
+}
 
 @Component({
   selector: 'app-tecnologia',

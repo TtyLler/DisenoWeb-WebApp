@@ -31,6 +31,10 @@ import { AddLimpiezaComponent } from './components/add-limpieza/add-limpieza.com
 import { AddTecnologiaComponent } from './components/add-tecnologia/add-tecnologia.component';
 import { AddProveedorComponent } from './components/add-proveedor/add-proveedor.component';
 import { logincheckGuard } from './guard/logincheck.guard';
+import { AddFoodComponent } from './food/food.component';
+import { CartComponent } from './cart/cart.component';
+
+
 
 const routes: Routes = [
   {
@@ -151,10 +155,11 @@ const routes: Routes = [
   { path: 'add-proveedor', component: AddProveedorComponent},
   { path: 'add-proveedor/:id', component: AddProveedorComponent},
   { path: 'mesas-dispo',canActivate: [logincheckGuard], component: MesasDispoComponent },
+  { path: 'food/:mesa',canActivate: [logincheckGuard], component: AddFoodComponent },
   { path: 'facturas',canActivate: [logincheckGuard], component: FacturasComponent },
   { path: 'menu', canActivate: [logincheckGuard], component: MenuComponent },
   {
-    path: 'listpais',
+    path: 'listpais', 
     component: ListPaisComponent,
   },
   {
@@ -188,6 +193,18 @@ const routes: Routes = [
   {
     path: 'edit-desechable/:id',
     component: AddEditDesechableComponent,
+  },
+  {
+    path: 'food',
+    component: AddFoodComponent,
+  },
+  {
+    path: 'food/:mesa',
+    component: AddFoodComponent,
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
   },
   {
     path: '**',
