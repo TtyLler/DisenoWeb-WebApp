@@ -35,6 +35,9 @@ import { AddFoodComponent } from './food/food.component';
 import { CartComponent } from './cart/cart.component';
 
 
+import { AddEditBitacoraComponent } from './components/add-edit-bitacora/add-edit-bitacora.component';
+import { ListBitacoraComponent } from './components/list-bitacora/list-bitacora.component';
+import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
 
 const routes: Routes = [
   {
@@ -53,6 +56,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'reservaciones/:id',
+    canActivate: [logincheckGuard],
+    component: ReservacionesComponent,
   },
   {
     path: 'listempleado',
@@ -144,54 +152,78 @@ const routes: Routes = [
     canActivate: [logincheckGuard],
     component: AddEditCajaComponent,
   },
-  { path: 'limpiesa-higiene', component: LimpiesaHigieneComponent },
-  { path: 'tecnologia', component: TecnologiaComponent },
-  { path: 'listproveedor', component:ProveedorComponent},
-  { path: 'add-limpieza', component: AddLimpiezaComponent},
-  { path: 'edit-limpieza/:id', component: AddLimpiezaComponent},
-  { path: 'limpiesa-higiene', component: LimpiesaHigieneComponent},
-  { path: 'add-tecnologia', component: AddTecnologiaComponent},
-  { path: 'add-tecnologia/:id', component: AddTecnologiaComponent},
-  { path: 'add-proveedor', component: AddProveedorComponent},
-  { path: 'add-proveedor/:id', component: AddProveedorComponent},
-  { path: 'mesas-dispo',canActivate: [logincheckGuard], component: MesasDispoComponent },
-  { path: 'food/:mesa',canActivate: [logincheckGuard], component: AddFoodComponent },
-  { path: 'facturas',canActivate: [logincheckGuard], component: FacturasComponent },
-  { path: 'menu', canActivate: [logincheckGuard], component: MenuComponent },
+
   {
-    path: 'listpais', 
+    path: 'listbitacora',
+    canActivate: [logincheckGuard],
+    component: ListBitacoraComponent,
+  },
+  {
+    path: 'add-bitacora',
+    canActivate: [logincheckGuard],
+    component: AddEditBitacoraComponent,
+  },
+  {
+    path: 'edit-bitacora/:id',
+    canActivate: [logincheckGuard],
+    component: AddEditBitacoraComponent,
+  },
+  { path: 'limpiesa-higiene', canActivate: [logincheckGuard],component: LimpiesaHigieneComponent },
+  { path: 'tecnologia', canActivate: [logincheckGuard],component: TecnologiaComponent },
+  { path: 'listproveedor', canActivate: [logincheckGuard],component:ProveedorComponent},
+  { path: 'add-limpieza', canActivate: [logincheckGuard],component: AddLimpiezaComponent},
+  { path: 'edit-limpieza/:id', canActivate: [logincheckGuard],component: AddLimpiezaComponent},
+  { path: 'limpiesa-higiene',canActivate: [logincheckGuard], component: LimpiesaHigieneComponent},
+  { path: 'add-tecnologia', canActivate: [logincheckGuard],component: AddTecnologiaComponent},
+  { path: 'add-tecnologia/:id', canActivate: [logincheckGuard],component: AddTecnologiaComponent},
+  { path: 'add-proveedor', canActivate: [logincheckGuard],component: AddProveedorComponent},
+  { path: 'add-proveedor/:id', canActivate: [logincheckGuard],component: AddProveedorComponent},
+  { path: 'mesas-dispo', component: MesasDispoComponent },
+  { path: 'facturas', component: FacturasComponent },
+  { path: 'menu', component: MenuComponent },
+  {
+    path: 'listpais',
+    canActivate: [logincheckGuard],
     component: ListPaisComponent,
   },
   {
     path: 'add-pais',
+    canActivate: [logincheckGuard],
     component: AddEditPaisComponent,
   },
   {
     path: 'edit-pais/:id',
+    canActivate: [logincheckGuard],
     component: AddEditPaisComponent,
   },
   {
     path: 'listcomestible',
+    canActivate: [logincheckGuard],
     component: ListComestibleComponent,
   },
   {
     path: 'add-comestible',
+    canActivate: [logincheckGuard],
     component: AddEditComestibleComponent,
   },
   {
     path: 'edit-comestible/:id',
+    canActivate: [logincheckGuard],
     component: AddEditComestibleComponent,
   },
   {
     path: 'listdesechable',
+    canActivate: [logincheckGuard],
     component: ListDesechableComponent,
   },
   {
     path: 'add-desechable',
+    canActivate: [logincheckGuard],
     component: AddEditDesechableComponent,
   },
   {
     path: 'edit-desechable/:id',
+    canActivate: [logincheckGuard],
     component: AddEditDesechableComponent,
   },
   {

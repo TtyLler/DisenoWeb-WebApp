@@ -3,7 +3,10 @@ import { Limpieza } from 'src/app/interfaces/Limpieza';
 import { LimpiezaService } from 'src/app/services/limpieza.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 @Component({
   selector: 'app-add-limpieza',
   templateUrl: './add-limpieza.component.html',
@@ -13,10 +16,7 @@ export class AddLimpiezaComponent {
   formLimpieza: FormGroup;
   id: any;
   operacion: string = "Agregar "
-  constructor(private _limpiezaService: LimpiezaService, 
-    private fb: FormBuilder, 
-    private router: Router, 
-    private aRouter: ActivatedRoute ){
+  constructor(private _limpiezaService: LimpiezaService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute,private _loginService: LoginService, private _bitacoraService: BitacoraService ){
     this.formLimpieza = this.fb.group({
       CodigoLimpieza: ['', Validators.required],
       NombreLimpieza: ['', Validators.required],
@@ -57,11 +57,12 @@ export class AddLimpiezaComponent {
     if(this.id != null){
       limpieza.id = this.id
       this._limpiezaService.updateLimpieza(this.id, limpieza).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.UPDATE}Limpieza`)).subscribe()
         this.router.navigate(['/limpiesa-higiene'])
       })
     }else{
       this._limpiezaService.saveLimpieza(limpieza).subscribe(() => {
-        console.log(limpieza)
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.ADD}Limpieza`)).subscribe()
         this.router.navigate(['/limpiesa-higiene']);
       })
     }

@@ -3,7 +3,10 @@ import { Caja } from 'src/app/interfaces/caja';
 import { CajaService } from 'src/app/services/caja.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 
 @Component({
   selector: 'app-add-edit-caja',
@@ -14,7 +17,7 @@ export class AddEditCajaComponent {
   formCaja: FormGroup
   id: any
   operacion: string = "Agregar "
-  constructor(private _cajaService: CajaService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute ){
+  constructor(private _cajaService: CajaService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute, private _loginService: LoginService, private _bitacoraService: BitacoraService ){
     this.formCaja = this.fb.group({
       CodigoCaja: ['', Validators.required],
       CodigoRestaurante: ['', Validators.required],
@@ -58,10 +61,12 @@ export class AddEditCajaComponent {
     if(this.id != null){
       caja.id = this.id
       this._cajaService.updateCaja(this.id, caja).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.UPDATE}Caja`)).subscribe()
         this.router.navigate(['/listcaja'])
       })
     }else{
       this._cajaService.saveCaja(caja).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.ADD}Caja`)).subscribe()
         this.router.navigate(['/listcaja'])
       })
     }

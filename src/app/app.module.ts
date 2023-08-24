@@ -54,6 +54,12 @@ import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
 import { AddFoodComponent } from './food/food.component';
 import { CartComponent } from './cart/cart.component';
 
+import { FilterBitacoraPipe } from './pipes/filter-bitacora.pipe';
+import { AddEditBitacoraComponent } from './components/add-edit-bitacora/add-edit-bitacora.component';
+import { ListBitacoraComponent } from './components/list-bitacora/list-bitacora.component';
+import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,14 +107,19 @@ import { CartComponent } from './cart/cart.component';
     FilterProveedorPipe,
     AddLimpiezaComponent,
     AddFoodComponent,
-    CartComponent
+    CartComponent,
+    FilterBitacoraPipe,
+    AddEditBitacoraComponent,
+    ListBitacoraComponent,
+    ReservacionesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
+    FontAwesomeModule 
   ],
   providers: [
     {

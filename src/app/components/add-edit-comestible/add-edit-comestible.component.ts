@@ -3,7 +3,10 @@ import { Comestible } from 'src/app/interfaces/comestible';
 import { ComestibleService } from 'src/app/services/comestible.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 
 @Component({
   selector: 'app-add-edit-comestible',
@@ -14,7 +17,7 @@ export class AddEditComestibleComponent {
   formComestible: FormGroup
   id: any
   operacion: string = "Agregar "
-  constructor(private _comestibleService: ComestibleService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute ){
+  constructor(private _comestibleService: ComestibleService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute,private _loginService: LoginService, private _bitacoraService: BitacoraService ){
     this.formComestible = this.fb.group({
       CodigoComestible: ['', Validators.required],
       DescripcionComestible: ['', Validators.required],
@@ -58,10 +61,12 @@ export class AddEditComestibleComponent {
     if(this.id != null){
       comestible.id = this.id
       this._comestibleService.updateComestible(this.id, comestible).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.UPDATE}Comestible`)).subscribe()
         this.router.navigate(['/listcomestible'])
       })
     }else{
       this._comestibleService.saveComestible(comestible).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.ADD}Comestible`)).subscribe()
         this.router.navigate(['/listcomestible'])
       })
     }

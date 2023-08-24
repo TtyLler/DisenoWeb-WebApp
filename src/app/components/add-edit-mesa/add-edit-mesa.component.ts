@@ -3,7 +3,10 @@ import { Mesa } from 'src/app/interfaces/mesa';
 import { MesaService } from 'src/app/services/mesa.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 @Component({
   selector: 'app-add-edit-mesa',
   templateUrl: './add-edit-mesa.component.html',
@@ -13,7 +16,7 @@ export class AddEditMesaComponent {
   formMesa: FormGroup
   id: any
   operacion: string = "Agregar "
-  constructor(private _mesaService: MesaService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute ){
+  constructor(private _mesaService: MesaService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute,private _loginService: LoginService, private _bitacoraService: BitacoraService ){
     this.formMesa = this.fb.group({
       CodigoMesa: ['', Validators.required],
       NombreMesa: ['', Validators.required],
@@ -57,11 +60,12 @@ export class AddEditMesaComponent {
     if(this.id != null){
       mesa.id = this.id
       this._mesaService.updateMesa(this.id, mesa).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.UPDATE}Mesa`)).subscribe()
         this.router.navigate(['/listmesa'])
       })
     }else{
       this._mesaService.saveMesa(mesa).subscribe(() => {
-        console.log(mesa)
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.ADD}Mesa`)).subscribe()
         this.router.navigate(['/listmesa'])
       })
     }

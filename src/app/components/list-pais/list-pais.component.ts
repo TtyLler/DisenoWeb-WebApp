@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Pais } from 'src/app/interfaces/pais';
 import { PaisService } from 'src/app/services/pais.service';
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 
 
 @Component({
@@ -12,7 +16,7 @@ export class ListPaisComponent {
   listPaises: Pais[] = [];
   filterPost = ''
 
-  constructor(private _paisService: PaisService) {}
+  constructor(private _paisService: PaisService, private _loginService: LoginService, private _bitacoraService: BitacoraService) {}
 
   ngOnInit(): void {
     this.getListPaises();
@@ -23,8 +27,8 @@ export class ListPaisComponent {
     });
   }
   deletePais(id: string) {
-    console.log(id);
     this._paisService.deletePais(id).subscribe(() => {
+      this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(), `${DESCRIPTION_TYPES.DELETE}Pais`)).subscribe()
       this.getListPaises();
     });
   }
