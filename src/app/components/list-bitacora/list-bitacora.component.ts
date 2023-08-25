@@ -8,6 +8,8 @@ import { BitacoraService } from 'src/app/services/bitacora.service';
   styleUrls: ['./list-bitacora.component.css']
 })
 export class ListBitacoraComponent {
+  count: any
+  page:number = 1
   listBitacora: Bitacora[] = [];
   filterPost = ''
   constructor(private _bitacoraService: BitacoraService) {}

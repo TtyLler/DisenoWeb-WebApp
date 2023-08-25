@@ -59,6 +59,7 @@ import { AddEditBitacoraComponent } from './components/add-edit-bitacora/add-edi
 import { ListBitacoraComponent } from './components/list-bitacora/list-bitacora.component';
 import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -119,7 +120,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    FontAwesomeModule 
+    FontAwesomeModule,
+    NgxPaginationModule
   ],
   providers: [
     {

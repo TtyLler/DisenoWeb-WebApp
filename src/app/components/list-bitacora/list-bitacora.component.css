@@ -1,11 +1,25 @@
-.title{ 
-    margin-top: 30px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-#searchInput{
+#searchInput {
     width: 50%;
-    box-shadow: 3px 3px 3px rgba(180, 180, 180)
-    ;
-}
+    box-shadow: 3px 3px 3px rgba(180, 180, 180);
+    margin-right: 40%;
+  }
+  .background-image {
+    background-image: url("../../../assets/pexels-jessica-lewis-606539.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .jumbotron {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    color: #000;
+  }
+  

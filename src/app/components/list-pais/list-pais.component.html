@@ -1,34 +1,39 @@
 <app-encabezado></app-encabezado>
-<div class="container mt-3">
-    <section>
-      <h4>Listado de Paises</h4>
-    </section>
-    <section class="title mb-3">
-      <input type="text" name="filterPost" class="form-control" placeholder="Buscar...." id="searchInput" [(ngModel)]="filterPost">
-      <button type="button" class="btn btn-secondary" routerLink="/add-pais">Agregar Pais</button>
-    </section>
-    <table class="table table-dark table-hover text-center">
-      <thead>
-        <tr>
-          <th scope="col">CodigoPais</th>
-          <th scope="col">NombrePais</th>          
-          <th rowspan="1" colspan="2">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of listPaises | filter:filterPost">
-          <td>{{ item.CodigoPais }}</td>
-          <td>{{ item.NombrePais }}</td>
-          <td>
-            <button type="button" class="btn btn-primary btn-sm" routerLink="/edit-pais/{{item.id}}">
-              Editar
-            </button>
-            <button type="button" class="btn btn-danger btn-sm ms-2" (click)="deletePais(item.id)">
-              Eliminar
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="background-image">
+    <div class="container">
+      <div class="jumbotron">
+        <section>
+          <h4>Listado de Paises</h4>
+        </section>
+        <section class="title mb-3">
+          <div class="d-flex align-items-center">
+            <input type="text" name="filterPost" class="form-control" placeholder="Buscar...." id="searchInput" [(ngModel)]="filterPost">
+      <button type="button" class="btn btn-success" routerLink="/add-pais">Agregar Pais</button>
+          </div>
+        </section>
+        <table class="table table-dark table-hover text-center">
+          <thead>
+            <tr>
+              <th scope="col">CodigoPais</th>
+              <th scope="col">NombrePais</th>          
+              <th rowspan="1" colspan="2">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listPaises | filterPais :filterPost">
+              <td>{{ item.CodigoPais }}</td>
+              <td>{{ item.NombrePais }}</td>
+              <td>
+                <button type="button" class="btn btn-primary btn-sm" routerLink="/edit-pais/{{item.id}}">
+                  Editar
+                </button>
+                <button type="button" class="btn btn-danger btn-sm ms-2" (click)="deletePais(item.id)">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-  

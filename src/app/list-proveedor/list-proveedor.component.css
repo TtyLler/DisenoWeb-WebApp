@@ -17,4 +17,9 @@
     padding: 30px;
     color: #000; 
   }
+  #searchInput {
+    width: 50%;
+    box-shadow: 3px 3px 3px rgba(180, 180, 180);
+    margin-right: 40%;
+  }
   
