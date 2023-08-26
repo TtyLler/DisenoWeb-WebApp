@@ -3,7 +3,10 @@ import { Factura } from 'src/app/interfaces/factura';
 import { FacturaService } from 'src/app/services/factura.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 @Component({
   selector: 'app-add-edit-factura',
   templateUrl: './add-edit-factura.component.html',
@@ -13,7 +16,7 @@ export class AddEditFacturaComponent {
   formFactura: FormGroup
   id: any
   operacion: string = "Agregar "
-  constructor(private _facturaService: FacturaService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute ){
+  constructor(private _facturaService: FacturaService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute, private _bitacoraService: BitacoraService, private _loginService: LoginService ){
     this.formFactura = this.fb.group({
       FechaHoraFactura: ['', Validators.required],
       CodigoCaja: ['', Validators.required],
@@ -60,10 +63,12 @@ export class AddEditFacturaComponent {
     if(this.id != null){
       factura.id = this.id
       this._facturaService.updateFactura(this.id, factura).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.UPDATE}Facturas`)).subscribe()
         this.router.navigate(['/listfactura'])
       })
     }else{
       this._facturaService.saveFactura(factura).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`Apertura de caja con un monto de: ₡${factura.EntradaDeDinero}`)).subscribe()
         this.router.navigate(['/listfactura'])
       })
     }

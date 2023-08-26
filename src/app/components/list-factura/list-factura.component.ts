@@ -4,6 +4,7 @@ import { FacturaService } from 'src/app/services/factura.service';
 import { LoginService } from 'src/app/services/login.service';
 import { BitacoraService } from 'src/app/services/bitacora.service';
 import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -36,6 +37,7 @@ export class ListFacturaComponent {
   deleteFactura(id: string) {
     console.log(id);
     this._facturaService.deleteFactura(id).subscribe(() => {
+      this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(), `${DESCRIPTION_TYPES.DELETE}Facturas`)).subscribe()
       this.getListFacturas();
     });
   }
