@@ -20,6 +20,8 @@ import { ListComestibleComponent } from './components/list-comestible/list-comes
 import { AddEditComestibleComponent } from './components/add-edit-comestible/add-edit-comestible.component';
 import { ListDesechableComponent } from './components/list-desechable/list-desechable.component';
 import { AddEditDesechableComponent } from './components/add-edit-desechable/add-edit-desechable.component';
+import { ListFacturaComponent } from './components/list-factura/list-factura.component';
+import { AddEditFacturaComponent } from './components/add-edit-factura/add-edit-factura.component';
 import { AddEditEquipoComponent } from './components/add-edit-equipo/add-edit-equipo.component';
 import { ListEquipoComponent } from './components/list-equipo/list-equipo.component';
 import { ListCajaComponent } from './components/list-caja/list-caja.component';
@@ -188,6 +190,18 @@ const routes: Routes = [
   {
     path: 'edit-desechable/:id',
     component: AddEditDesechableComponent,
+  },
+  {
+    path: 'listfactura',
+    component: ListFacturaComponent,
+  },
+  {
+    path: 'add-factura',
+    component: AddEditFacturaComponent,
+  },
+  {
+    path: 'edit-factura/:id',
+    component: AddEditFacturaComponent,
   },
   {
     path: '**',

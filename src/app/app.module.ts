@@ -51,6 +51,9 @@ import { FilterTecnologiaPipe } from './pipes/filter-tecnologia.pipe';
 import { AddProveedorComponent } from './components/add-proveedor/add-proveedor.component';
 import { ProveedorComponent } from './list-proveedor/list-proveedor.component';
 import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
+import { ListFacturaComponent } from './components/list-factura/list-factura.component';
+import { AddEditFacturaComponent } from './components/add-edit-factura/add-edit-factura.component';
+import { FilterFacturaPipe } from './pipes/filter-factura.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,7 +99,10 @@ import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
     AddProveedorComponent,
     ProveedorComponent,
     FilterProveedorPipe,
-    AddLimpiezaComponent
+    AddLimpiezaComponent,
+    ListFacturaComponent,
+    AddEditFacturaComponent,
+    FilterFacturaPipe
   ],
   imports: [
     BrowserModule,
