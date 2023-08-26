@@ -51,6 +51,9 @@ import { FilterTecnologiaPipe } from './pipes/filter-tecnologia.pipe';
 import { AddProveedorComponent } from './components/add-proveedor/add-proveedor.component';
 import { ProveedorComponent } from './list-proveedor/list-proveedor.component';
 import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
+import { ListFacturaComponent } from './components/list-factura/list-factura.component';
+import { AddEditFacturaComponent } from './components/add-edit-factura/add-edit-factura.component';
+import { FilterFacturaPipe } from './pipes/filter-factura.pipe';
 import { AddFoodComponent } from './food/food.component';
 import { CartComponent } from './cart/cart.component';
 
@@ -60,6 +63,9 @@ import { ListBitacoraComponent } from './components/list-bitacora/list-bitacora.
 import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddFood2Component } from './food2/food2.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -107,6 +113,9 @@ import { AddFood2Component } from './food2/food2.component';
     ProveedorComponent,
     FilterProveedorPipe,
     AddLimpiezaComponent,
+    ListFacturaComponent,
+    AddEditFacturaComponent,
+    FilterFacturaPipe,
     AddFoodComponent,
     CartComponent,
     FilterBitacoraPipe,
@@ -122,7 +131,9 @@ import { AddFood2Component } from './food2/food2.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    FontAwesomeModule 
+    FontAwesomeModule,
+    NgxPaginationModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {

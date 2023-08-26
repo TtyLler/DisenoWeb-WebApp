@@ -2,45 +2,64 @@
 <div class="background-image">
   <div class="container">
     <div class="jumbotron">
-          <section>
-            
-              <h4>Listado de Articulos de Limpieza</h4>
-          </section>
-          <section class="title mb-3">
-              <div class="d-flex align-items-center">
-                  <input type="text" class="form-control me-2" placeholder="Buscar...." id="searchInput" name="filterPost" [(ngModel)]="filterPost">
-                  <button type="button" class="btn btn-success" routerLink="/add-limpieza">Agregar articulo de Limpieza</button>
-   
-              </div>
-          </section>
-          <table class="table table-dark table-hover text-center">
-              <thead>
-                  <tr>
-                      <th scope="col">Codigo</th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Cantidad</th>
-                      <th scope="col">Restaurante</th>
-                      <th rowspan="1" colspan="2">Acciones</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let item of listLimpieza | filterLimpieza: filterPost">
-                      <td>{{ item.CodigoLimpieza}}</td>
-                      <td>{{ item.NombreLimpieza}}</td>
-                      <td>{{ item.CantidadLimp}}</td>
-                      <td>{{ item.RestauranteLimp}}</td>
-                      <td>
-                        <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/edit-limpieza', item.id]">
-                            Editar
-                          </button>
-  
-          <button type="button" class="btn btn-danger btn-sm ms-2" (click)="deleteLimpieza(item.id)">
-            Eliminar
+      <section>
+        <h4>Listado de Articulos de Limpieza</h4>
+      </section>
+      <section class="title mb-3">
+        <div class="d-flex align-items-center">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Buscar...."
+            id="searchInput"
+            name="filterPost"
+            [(ngModel)]="filterPost"
+          />
+          <button
+            type="button"
+            class="btn btn-success"
+            routerLink="/add-limpieza"
+          >
+            Agregar articulo de Limpieza
           </button>
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
-      </div>
+        </div>
+      </section>
+      <table class="table table-dark table-hover text-center">
+        <thead>
+          <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Restaurante</th>
+            <th rowspan="1" colspan="2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listLimpieza | filterLimpieza : filterPost">
+            <td>{{ item.CodigoLimpieza }}</td>
+            <td>{{ item.NombreLimpieza }}</td>
+            <td>{{ item.CantidadLimp }}</td>
+            <td>{{ item.RestauranteLimp }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary btn-sm"
+                [routerLink]="['/edit-limpieza', item.id]"
+              >
+                Editar
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-danger btn-sm ms-2"
+                (click)="deleteLimpieza(item.id)"
+              >
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

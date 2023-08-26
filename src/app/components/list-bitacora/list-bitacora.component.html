@@ -1,30 +1,38 @@
 <app-encabezado></app-encabezado>
-<div class="container mt-3">
-    <section>
-      <h4>Listado de Bitacoras</h4>
-    </section>
-    <section class="title mb-3">
-      <input type="text" class="form-control" placeholder="Buscar...." id="searchInput" name="filterPost" [(ngModel)]="filterPost">
-    </section>
-    <table class="table table-dark table-hover text-center">
-      <thead>
-        <tr>
-          <th scope="col">CodigoRegistro</th>
-          <th scope="col">Usuario</th>
-          <th scope="col">Fecha y Hora</th>
-          <th scope="col">Descripcion</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of listBitacora | filterBitacora: filterPost">
-          <td>{{ item.CodigoRegistro }}</td>
-          <td>{{ item.Usuario }}</td>
-          <td>{{ item.FechaHora |  date:'dd/MM/yyyy, h:mm:ss aaa' }}</td>
-          <td>{{ item.Descripcion }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
 
+  <div class="background-image">
+    <div class="container">
+      <div class="jumbotron">
+        <section>
+          <h4>Listado de Bitacoras</h4>
+        </section>
+        <section class="title mb-3">
+          <div class="d-flex align-items-center">
+            <input type="text" class="form-control" placeholder="Buscar...." id="searchInput" name="filterPost" [(ngModel)]="filterPost">
+          </div>
+        </section>
+        <table class="table table-dark table-hover text-center">
+          <thead>
+            <tr>
+              <th scope="col">CodigoRegistro</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Fecha y Hora</th>
+              <th scope="col">Descripcion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listBitacora | filterBitacora: filterPost | paginate:{itemsPerPage: 15, currentPage: page, totalItems: count}; let i = index">
+              <td>{{ item.CodigoRegistro }}</td>
+              <td>{{ item.Usuario }}</td>
+              <td>{{ item.FechaHora |  date:'dd/MM/yyyy, h:mm:ss aaa' }}</td>
+              <td>{{ item.Descripcion }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <pagination-controls (pageChange)="page=$event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
 
