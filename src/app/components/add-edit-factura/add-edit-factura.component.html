@@ -6,7 +6,7 @@
           <form [formGroup]="formFactura" (ngSubmit)="addFactura()">
             <input
               formControlName="FechaHoraFactura"
-              type="text"
+              type="datetime-local"
               class="form-control"
               placeholder="Fecha Hora Factura"
             />

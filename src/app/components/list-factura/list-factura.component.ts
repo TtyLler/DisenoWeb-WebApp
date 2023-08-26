@@ -25,10 +25,8 @@ export class ListFacturaComponent {
   }
   getListFacturas() {
     this._facturaService.getListFacturas().subscribe((data) => {
-      this.listFactura = data.filter(({FechaHoraFactura})=>{
-     new Date(FechaHoraFactura) <= new Date() 
-      }
-      );
+      this.listFactura = data.filter(item => new Date(item.FechaHoraFactura).toISOString().toLocaleString().split('T')[0] == new Date().toISOString().toLocaleString().split('T')[0])
+      console.log(new Date().toISOString().toLocaleString().split('T')[0])
       this.sumaTotal = 0
       this.listFactura.forEach((item) => {
       this.sumaTotal = this.sumaTotal + item.EntradaDeDinero
