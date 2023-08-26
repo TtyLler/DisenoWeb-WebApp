@@ -1,31 +1,51 @@
 <app-encabezado></app-encabezado>
-<div class="container mt-4">
-    <h2 class="mb-4">Facturas</h2>
-    <div class="row">
-      <div class="col">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Mesa</th>
-              <th>Productos</th>
-              <th>Total</th>
-              <th>Impuestos</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let factura of facturas">
-              <td>{{ factura.mesa }}</td>
-              <td>
-                <ul>
-                  <li *ngFor="let item of factura.items">{{ item.producto }} - {{ item.precio | currency }}</li>
-                </ul>
-              </td>
-              <td>{{ factura.total | currency }}</td>
-              <td>{{ calcularImpuestos(factura) | currency }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<div class="background-image">
+  <div class="container">
+    <div class="jumbotron">
+      <section>
+        <h4>Listado de Facturas generadas</h4>
+      </section>
+      <section class="title mb-">
+        <div class="d-flex align-items-center">
+          
+        </div>
+      </section>
+      <table class="table table-hover text-center">
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Caja</th>
+            <th scope="col">Restaurante</th>
+            <th scope="col">Empleado</th>
+            <th scope="col">Entrada de Dinero</th>
+            <th scope="col">Descripción</th>
+            <th rowspan="1" colspan="2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredFacturas">
+            <td>{{ item.FechaHoraFactura | date: 'HH:mm -dd/MM/yyyy' }}</td>
+            <td>{{ item.CodigoCaja }}</td>
+            <td>{{ item.CodigoRestaurante }}</td>
+            <td>{{ item.CodigoEmpleado }}</td>
+            <td>{{ item.EntradaDeDinero | currency : '₡' : 'symbol' : '1.2-2' }}</td>
+            <td>{{ item.DescripcionFactura }}</td>
+            <td>
+              <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/facturas', item.id]">
+                Editar
+              </button>
+              <button type="button" class="btn btn-danger btn-sm ms-2" (click)="deleteFactura(item.id)">
+                Eliminar
+              </button>
+            </td>
+           
+          </tr>
+        </tbody>
+      </table>
+      <h5>
+        Total:
+        {{ total | currency : "₡" : "symbol" : "1.2-2" }}
+      </h5>
     </div>
   </div>
-  
+</div>

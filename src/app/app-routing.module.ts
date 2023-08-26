@@ -5,7 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ListEmpleadoComponent } from './components/list-empleado/list-empleado.component';
 import { AddEditEmpleadoComponent } from './components/add-edit-empleado/add-edit-empleado.component';
-import { FacturasComponent } from './facturas/facturas.component';
+import { FacturaComponent } from './facturas/facturas.component';
 import { MenuComponent } from './menu/menu.component';
 import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
 import { AddEditMesaComponent } from './components/add-edit-mesa/add-edit-mesa.component';
@@ -33,6 +33,7 @@ import { AddProveedorComponent } from './components/add-proveedor/add-proveedor.
 import { logincheckGuard } from './guard/logincheck.guard';
 import { AddFoodComponent } from './food/food.component';
 import { CartComponent } from './cart/cart.component';
+import { AddFood2Component } from './food2/food2.component';
 
 
 import { AddEditBitacoraComponent } from './components/add-edit-bitacora/add-edit-bitacora.component';
@@ -179,8 +180,9 @@ const routes: Routes = [
   { path: 'add-proveedor', canActivate: [logincheckGuard],component: AddProveedorComponent},
   { path: 'add-proveedor/:id', canActivate: [logincheckGuard],component: AddProveedorComponent},
   { path: 'mesas-dispo', component: MesasDispoComponent },
-  { path: 'facturas', component: FacturasComponent },
+  { path: 'facturas', component: FacturaComponent },
   { path: 'menu', component: MenuComponent },
+  { path: 'facturas', component: FacturaComponent },
   {
     path: 'listpais',
     canActivate: [logincheckGuard],
@@ -233,6 +235,14 @@ const routes: Routes = [
   {
     path: 'food/:mesa',
     component: AddFoodComponent,
+  },
+  {
+    path: 'food2',
+    component: AddFood2Component,
+  },
+  {
+    path: 'food2/:mesa',
+    component: AddFood2Component,
   },
   {
     path: 'cart',

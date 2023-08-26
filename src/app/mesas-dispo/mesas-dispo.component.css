@@ -1,10 +1,9 @@
-/* Agrega estilos para las mesas */
+
 .mesa {
-  width: 180px; /* Aumenta el ancho de las mesas */
-  height: 120px; /* Aumenta el alto de las mesas */
-  background-color: #f8f9fa; /* Cambia el color de fondo */
-  border: 2px solid #6c757d; /* Cambia el color del borde */
-  margin: 15px;
+  width: 180px; 
+  height: 120px; 
+  background-color: #f8f9fa;
+  border: 2px solid #6c757d; 
   text-align: center;
   cursor: pointer;
   line-height: 120px;
@@ -12,19 +11,37 @@
   font-weight: bold;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
-  border-radius: 10px; /* Agrega bordes redondeados */
+  border-radius: 10px; 
 }
 
-/* Estilo cuando se pasa el ratón sobre una mesa */
 .mesa:hover {
-  background-color: #e9ecef; /* Cambia el color de fondo al pasar el ratón */
+  background-color: #e9ecef; 
   box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
-/* Estilos para el encabezado */
+
 .jumbotron h4 {
-  font-size: 24px; /* Cambia el tamaño del texto a 24px */
-  background-color: #a0a0a0; /* Cambia el color de fondo a gris claro */
-  padding: 10px; /* Agrega un relleno alrededor del encabezado */
-  border-radius: 5px; /* Agrega bordes redondeados al encabezado */
+  font-size: 24px; 
+  background-color: #a0a0a0; 
+  border-radius: 5px; 
+}
+.barra {
+  width: 1170px; 
+  height: 120px; 
+  background-color: #f8f9fa; 
+  border: 2px solid #6c757d; 
+  text-align: center;
+  cursor: pointer;
+  line-height: 120px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 10px; 
+  margin-top: 20px;
+}
+
+.mesa-ocupada {
+  background-color: red;
+  
 }
