@@ -54,6 +54,18 @@ import { FilterProveedorPipe } from './pipes/filter-proveedor.pipe';
 import { ListFacturaComponent } from './components/list-factura/list-factura.component';
 import { AddEditFacturaComponent } from './components/add-edit-factura/add-edit-factura.component';
 import { FilterFacturaPipe } from './pipes/filter-factura.pipe';
+import { AddFoodComponent } from './food/food.component';
+import { CartComponent } from './cart/cart.component';
+
+import { FilterBitacoraPipe } from './pipes/filter-bitacora.pipe';
+import { AddEditBitacoraComponent } from './components/add-edit-bitacora/add-edit-bitacora.component';
+import { ListBitacoraComponent } from './components/list-bitacora/list-bitacora.component';
+import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,14 +114,23 @@ import { FilterFacturaPipe } from './pipes/filter-factura.pipe';
     AddLimpiezaComponent,
     ListFacturaComponent,
     AddEditFacturaComponent,
-    FilterFacturaPipe
+    FilterFacturaPipe,
+    AddFoodComponent,
+    CartComponent,
+    FilterBitacoraPipe,
+    AddEditBitacoraComponent,
+    ListBitacoraComponent,
+    ReservacionesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
+    FontAwesomeModule,
+    NgxPaginationModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {

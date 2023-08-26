@@ -25,7 +25,7 @@ export class BebidaService {
   deleteBebida (id:string): Observable<void>{
     return this.http.delete<void>(`${this.appUrl}${this.apiUrl}${id}`, this.httpOptions)
   }
-  saveBebida(bebida:Bebida): Observable<void>{
+  saveBebida(bebida:any): Observable<void>{
     return this.http.post<void>(`${this.appUrl}${this.apiUrl}`, bebida)
   }
   getOneBebida(id: string): Observable<Bebida>{

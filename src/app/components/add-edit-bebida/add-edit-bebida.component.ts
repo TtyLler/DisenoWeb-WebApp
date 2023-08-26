@@ -3,7 +3,10 @@ import { Bebida } from 'src/app/interfaces/bebida';
 import { BebidaService } from 'src/app/services/bebida.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 @Component({
   selector: 'app-add-edit-bebida',
   templateUrl: './add-edit-bebida.component.html',
@@ -13,7 +16,7 @@ export class AddEditBebidaComponent {
   formBebida: FormGroup
   id: any
   operacion: string = "Agregar "
-  constructor(private _bebidaService: BebidaService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute ){
+  constructor(private _bebidaService: BebidaService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute, private _bitacoraService: BitacoraService, private _loginService: LoginService ){
     this.formBebida = this.fb.group({
       CodigoBebida: ['', Validators.required],
       TipoBebida: ['', Validators.required],
@@ -66,11 +69,12 @@ export class AddEditBebidaComponent {
     if(this.id != null){
       bebida.id = this.id
       this._bebidaService.updateBebida(this.id, bebida).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.UPDATE}Bebida`)).subscribe()
         this.router.navigate(['/listbebida'])
       })
     }else{
       this._bebidaService.saveBebida(bebida).subscribe(() => {
-        console.log(bebida)
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.ADD}Bebida`)).subscribe()
         this.router.navigate(['/listbebida'])
       })
     }

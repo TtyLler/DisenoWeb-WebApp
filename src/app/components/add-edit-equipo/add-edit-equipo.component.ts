@@ -3,7 +3,10 @@ import { Equipo } from 'src/app/interfaces/equipo';
 import { EquipoService } from 'src/app/services/equipo.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 @Component({
   selector: 'app-add-edit-equipo',
   templateUrl: './add-edit-equipo.component.html',
@@ -13,7 +16,7 @@ export class AddEditEquipoComponent {
   formEquipo: FormGroup
   id: any
   operacion: string = "Agregar "
-  constructor(private _equipoService: EquipoService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute ){
+  constructor(private _equipoService: EquipoService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute,private _loginService: LoginService, private _bitacoraService: BitacoraService ){
     this.formEquipo = this.fb.group({
       CodigoEquipo: ['', Validators.required],
       NombreEquipo: ['', Validators.required],
@@ -57,11 +60,12 @@ export class AddEditEquipoComponent {
     if(this.id != null){
       equipo.id = this.id
       this._equipoService.updateEquipo(this.id, equipo).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.UPDATE}Equipo`)).subscribe()
         this.router.navigate(['/listequipo'])
       })
     }else{
       this._equipoService.saveEquipo(equipo).subscribe(() => {
-        console.log(equipo)
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.ADD}Equipo`)).subscribe()
         this.router.navigate(['/listequipo'])
       })
     }

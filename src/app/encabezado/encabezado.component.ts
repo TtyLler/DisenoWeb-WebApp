@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
+import { BitacoraService } from '../services/bitacora.service';
+import { DESCRIPTION_TYPES } from '../constants/description.constants';
+import { generateBitacora } from '../utils/generatebitacora';
 
 @Component({
   selector: 'app-encabezado',
@@ -7,7 +10,7 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent {
-  constructor(private _loginService: LoginService){}
+  constructor(private _loginService: LoginService, private _bitacoraService: BitacoraService){}
 
   
   loggedIn(): boolean{
@@ -15,7 +18,14 @@ export class EncabezadoComponent {
   }
 
   logoutUser(){
+    if(this.getRol() === 'Admin'){
+      this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(), `${this._loginService.getUser()}${DESCRIPTION_TYPES.LOGOUT}`)).subscribe()
+    }
     this._loginService.logoutUser()
+  }
+
+  getName () {
+    return this._loginService.getName()?.toString()
   }
 
 

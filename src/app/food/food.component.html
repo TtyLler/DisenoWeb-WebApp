@@ -1,0 +1,134 @@
+<app-encabezado></app-encabezado>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 offset-lg-1">
+      <div class="menu">
+        <div class="menu-item">
+          <div class="menu-details">
+            <h4>Hamburguesa</h4>
+            <p>Carne de res cocida a la parrilla o frita, servida en un pan, acompañada con lechuga, tomate, queso,
+              cebolla y salsas.</p>
+            <div class="price-quantity">
+              <p class="price">Precio: ₡3500</p>
+              <div class="quantity">
+                <label for="quantity-hamburguesa">Cantidad:</label>
+                <input type="number" id="quantity-hamburguesa" name="quantity" min="1" value="1"
+                  #cantidadInputHamburguesa>
+              </div>
+            </div>
+          </div>
+          <button class="add-button"
+            (click)="addFood('Hamburguesa', 3500, mesa, +cantidadInputHamburguesa.value)">Agregar</button>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-details">
+            <h4>Chifrijo</h4>
+            <p>Chicharrones de cerdo crujientes, frijoles negros refritos, arroz blanco, chiles picados, cebolla, tomate
+              y limón, presentado en capas y servido con tortillas fritas.</p>
+            <div class="price-quantity">
+              <p class="price">Precio: ₡4000</p>
+              <div class="quantity">
+                <label for="quantity-chifrijo">Cantidad:</label>
+                <input type="number" id="quantity-chifrijo" name="quantity" min="1" value="1" #cantidadInputChifrijo>
+              </div>
+            </div>
+          </div>
+          <button class="add-button"
+            (click)="addFood('Chifrijo', 4000, mesa, +cantidadInputChifrijo.value)">Agregar</button>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-details">
+            <h4>Churrasco</h4>
+            <p>Plato tradicional de carne asada, que incluye cortes de carne a la parrilla generalmente de res,
+              aderezados con sal y especias.</p>
+            <div class="price-quantity">
+              <p class="price">Precio: ₡4500</p>
+              <div class="quantity">
+                <label for="quantity-churrasco">Cantidad:</label>
+                <input type="number" id="quantity-churrasco" name="quantity" min="1" value="1" #cantidadInputChurrasco>
+              </div>
+            </div>
+          </div>
+          <button class="add-button"
+            (click)="addFood('Churrasco', 4500, mesa, +cantidadInputChurrasco.value)">Agregar</button>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-details">
+            <h4>Chimichanga</h4>
+            <p>Burrito relleno de carne, frijoles y lechuga con fórmula secreta de la casa, que se fríe hasta que la
+              tortilla esté crujiente y dorada.</p>
+            <div class="price-quantity">
+              <p class="price">Precio: 5500</p>
+              <div class="quantity">
+                <label for="quantity-chimichanga">Cantidad:</label>
+                <input type="number" id="quantity-chimichanga" name="quantity" min="1" value="1"
+                  #cantidadInputChimichanga>
+              </div>
+            </div>
+          </div>
+          <button class="add-button"
+            (click)="addFood('Chimichanga', 5500, mesa, +cantidadInputChimichanga.value)">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrito de compras -->
+    <div class="col-lg-6">
+      <div class="card text-dark bg-light mb-3" style="max-width: 40rem">
+        <div class="card-header text-center">Tu Pedido</div>
+        <div class="card-body">
+          <div class="background-image">
+            <div class="container">
+              <div class="jumbotron">
+                <section>
+                  <table class="table table-gray table-hover text-center">
+                    <thead>
+                      <tr>
+
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of listCart">
+
+                        <td>{{ item.NombreProductoCart }}</td>
+                        <td>{{ item.CantidadCart }}</td>
+                        <td>{{ item.PrecioCart }}</td>
+                        <td>
+                          <button type="button" class="btn btn-danger btn-sm ms-2" (click)="deleteCart(item.id)">
+                            Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3"></td>
+                        <td>
+                          <h5>
+                            Total:
+                            {{ total | currency : "₡" : "symbol" : "1.2-2" }}
+                          </h5>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-success btn-lg mt-3" (click)="facturar()">
+                            Facturar
+                          </button>
+                          <div id="mensaje" class="mt-3 text-center" style="display: none;">
+                            ¡Pedido facturado con éxito!
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

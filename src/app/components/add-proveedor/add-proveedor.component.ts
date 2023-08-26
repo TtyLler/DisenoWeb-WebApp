@@ -3,7 +3,10 @@ import { Proveedor } from 'src/app/interfaces/proveedor';
 import { ProveedorService } from 'src/app/services/proveedor.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 @Component({
   selector: 'app-add-proveedor',
   templateUrl: './add-proveedor.component.html',
@@ -13,7 +16,7 @@ export class AddProveedorComponent {
   formProveedor: FormGroup
   id: any
   operacion: string = "Agregar "
-  constructor(private _proveedorService: ProveedorService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute) {
+  constructor(private _proveedorService: ProveedorService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute, private _loginService: LoginService, private _bitacoraService: BitacoraService) {
     this.formProveedor = this.fb.group({
       CodigoProv: ['', Validators.required],
       NombreProv: ['', Validators.required],
@@ -60,11 +63,12 @@ export class AddProveedorComponent {
     if (this.id != null) {
       proveedor.id = this.id
       this._proveedorService.updateProveedor(this.id, proveedor).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.UPDATE}Proveedor`)).subscribe()
         this.router.navigate(['/listproveedor'])
       })
     } else {
       this._proveedorService.saveProveedor(proveedor).subscribe(() => {
-        console.log(proveedor)
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.ADD}Proveedor`)).subscribe()
         this.router.navigate(['/listproveedor'])
       })
     }

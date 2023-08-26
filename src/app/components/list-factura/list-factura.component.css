@@ -5,7 +5,7 @@
     justify-content: space-between;
 }
 #searchInput{
-    width: 100%;
+    width: 50%;
     box-shadow: 3px 3px 3px rgba(180, 180, 180)
     ;
 }

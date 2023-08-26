@@ -1,0 +1,46 @@
+<app-encabezado></app-encabezado>
+<div class="background-image">
+  <div class="container">
+    <div class="jumbotron">
+          <section>
+            
+              <h4>Listado del Menu</h4>
+          </section>
+          <section class="title mb-">
+              <div class="d-flex align-items-center">
+                  <input type="text" class="form-control me-2" placeholder="Buscar...." id="searchInput" name="filterPost" [(ngModel)]="filterPost">
+                  <button type="button" class="btn btn-success" routerLink="/cart">Agregar Articulo</button>
+                
+              </div>
+          </section>
+          <table class="table table-dark table-hover text-center">
+              <thead>
+                  <tr>
+                      
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Mesa</th>
+                
+                       </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of listCart">
+               
+                      <td>{{ item.NombreProductoCart }}</td>
+                      <td>{{ item.CantidadCart }}</td>
+                      <td>{{ item.MesaCart }}</td>
+                      
+                      <td>
+                        <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/cart', item.id]">
+                            Editar
+                          </button>
+          <button type="button" class="btn btn-danger btn-sm ms-2" (click)="deleteCart(item.id)">
+            Eliminar
+          </button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

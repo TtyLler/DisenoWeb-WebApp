@@ -3,7 +3,10 @@ import { Empleado } from 'src/app/interfaces/empleado';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { LoginService } from 'src/app/services/login.service';
+import { BitacoraService } from 'src/app/services/bitacora.service';
+import { generateBitacora } from 'src/app/utils/generatebitacora';
+import { DESCRIPTION_TYPES } from 'src/app/constants/description.constants';
 @Component({
   selector: 'app-add-edit-empleado',
   templateUrl: './add-edit-empleado.component.html',
@@ -13,7 +16,7 @@ export class AddEditEmpleadoComponent {
   formEmpleado: FormGroup
   id: any
   operacion: string = "Agregar "
-  constructor(private _empleadoService: EmpleadoService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute ){
+  constructor(private _empleadoService: EmpleadoService, private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute,private _loginService: LoginService, private _bitacoraService: BitacoraService ){
     this.formEmpleado = this.fb.group({
       CodigoEmpleado: ['', Validators.required],
       NombreEmpleado: ['', Validators.required],
@@ -60,10 +63,12 @@ export class AddEditEmpleadoComponent {
     if(this.id != null){
       empleado.id = this.id
       this._empleadoService.updateEmpleado(this.id, empleado).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.UPDATE}Empleado`)).subscribe()
         this.router.navigate(['/listempleado'])
       })
     }else{
       this._empleadoService.saveEmpleado(empleado).subscribe(() => {
+        this._bitacoraService.saveBitacora(generateBitacora(this._loginService.getUser(),`${DESCRIPTION_TYPES.ADD}Empleado`)).subscribe()
         this.router.navigate(['/listempleado'])
       })
     }

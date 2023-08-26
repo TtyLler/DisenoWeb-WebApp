@@ -1,39 +1,46 @@
-<div class="container mt-3">
-    <section>
-      <h4>Listado de Comestibles</h4>
-    </section>
-    <section class="title mb-3">
-      <input type="text" name="filterPost" class="form-control" placeholder="Buscar...." id="searchInput" [(ngModel)]="filterPost">
-      <button type="button" class="btn btn-secondary" routerLink="/add-comestible">Agregar Comestible</button>
-    </section>
-    <table class="table table-dark table-hover text-center">
-      <thead>
-        <tr>
-          <th scope="col">CodigoComestible</th>
-          <th scope="col">DescripcionComestible</th>
-          <th scope="col">CantidadComestible</th>
-          <th scope="col">CodigoRestaurante</th>
-          <th scope="col">TipoComestible</th>
-          <th rowspan="1" colspan="2">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of listComestible | filterComestible:filterPost">
-          <td>{{ item.CodigoComestible }}</td>
-          <td>{{ item.DescripcionComestible }}</td>
-          <td>{{ item.CantidadComestible }}</td>
-          <td>{{ item.CodigoRestaurante }}</td>
-          <td>{{ item.TipoComestible }}</td>
-          <td>
-            <button type="button" class="btn btn-primary btn-sm" routerLink="/edit-comestible/{{item.id}}">
-              Editar
-            </button>
-            <button type="button" class="btn btn-danger btn-sm ms-2" (click)="deleteComestible(item.id)">
-              Eliminar
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<app-encabezado></app-encabezado>
   
+  <div class="background-image">
+    <div class="container">
+      <div class="jumbotron">
+        <section>
+          <h4>Listado de Comestibles</h4>
+        </section>
+        <section class="title mb-3">
+          <div class="d-flex align-items-center">
+            <input type="text" name="filterPost" class="form-control" placeholder="Buscar...." id="searchInput" [(ngModel)]="filterPost">
+      <button type="button" class="btn btn-success" routerLink="/add-comestible">Agregar Comestible</button>
+          </div>
+        </section>
+        <table class="table table-dark table-hover text-center">
+          <thead>
+            <tr>
+              <th scope="col">CodigoComestible</th>
+              <th scope="col">DescripcionComestible</th>
+              <th scope="col">CantidadComestible</th>
+              <th scope="col">CodigoRestaurante</th>
+              <th scope="col">TipoComestible</th>
+              <th rowspan="1" colspan="2">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listComestible | filterComestible:filterPost">
+              <td>{{ item.CodigoComestible }}</td>
+              <td>{{ item.DescripcionComestible }}</td>
+              <td>{{ item.CantidadComestible }}</td>
+              <td>{{ item.CodigoRestaurante }}</td>
+              <td>{{ item.TipoComestible }}</td>
+              <td>
+                <button type="button" class="btn btn-primary btn-sm" routerLink="/edit-comestible/{{item.id}}">
+                  Editar
+                </button>
+                <button type="button" class="btn btn-danger btn-sm ms-2" (click)="deleteComestible(item.id)">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
