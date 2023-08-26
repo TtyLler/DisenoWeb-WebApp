@@ -12,7 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms'
 import { MesasDispoComponent } from './mesas-dispo/mesas-dispo.component';
 
-import { FacturasComponent } from './facturas/facturas.component';
+import { FacturaComponent } from './facturas/facturas.component';
 import { MenuComponent } from './menu/menu.component';
 import { FilterPipe } from './pipes/filterEmpleado.pipe';
 import { AddEditMesaComponent } from './components/add-edit-mesa/add-edit-mesa.component';
@@ -62,6 +62,7 @@ import { AddEditBitacoraComponent } from './components/add-edit-bitacora/add-edi
 import { ListBitacoraComponent } from './components/list-bitacora/list-bitacora.component';
 import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddFood2Component } from './food2/food2.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -75,7 +76,7 @@ import { ToastrModule } from 'ngx-toastr';
     AddEditEmpleadoComponent,
     ListEmpleadoComponent,
     MesasDispoComponent,
-    FacturasComponent,
+  
     MenuComponent,
     FilterPipe,
     AddEditMesaComponent,
@@ -120,7 +121,9 @@ import { ToastrModule } from 'ngx-toastr';
     FilterBitacoraPipe,
     AddEditBitacoraComponent,
     ListBitacoraComponent,
-    ReservacionesComponent
+    ReservacionesComponent,
+    FacturaComponent,
+    AddFood2Component
   ],
   imports: [
     BrowserModule,

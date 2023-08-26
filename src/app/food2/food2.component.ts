@@ -10,11 +10,11 @@ import { FacturaService } from '../services/factura.service';
 import { formatDate } from '@angular/common';
 
 @Component({
-  selector: 'app-food',
-  templateUrl: './food.component.html',
-  styleUrls: ['./food.component.css']
+  selector: 'app-food2',
+  templateUrl: './food2.component.html',
+  styleUrls: ['./food2.component.css']
 })
-export class AddFoodComponent implements OnInit {
+export class AddFood2Component implements OnInit {
   formFood: FormGroup;
   mesa: any;
   id: any;
@@ -62,7 +62,7 @@ export class AddFoodComponent implements OnInit {
 
   redireccionar() {
     const navigationExtras: NavigationExtras = {
-      fragment: 'food'
+      fragment: 'food2'
     };
   }
 
@@ -79,7 +79,7 @@ export class AddFoodComponent implements OnInit {
   
     console.log(food);
     this._cartService.saveCart(food).subscribe(() => {
-      this.router.navigate(['/food', mesa]);
+      this.router.navigate(['/food2', mesa]);
       window.location.reload();
     });
   }
@@ -139,7 +139,7 @@ export class AddFoodComponent implements OnInit {
     CodigoRestaurante: 1,
     CodigoEmpleado: 1343,
     EntradaDeDinero: this.total,
-    DescripcionFactura: "Pedido de la mesa numero: " + this.mesa,
+    DescripcionFactura: "Pedido de la barra numero: " + this.mesa,
     id: ''
   };
 

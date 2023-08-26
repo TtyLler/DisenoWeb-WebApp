@@ -41,4 +41,3 @@ export class FacturaService {
     return this.http.put<void>(`${this.appUrl}${this.apiUrl}${id}`, factura)
   }
 }
-
